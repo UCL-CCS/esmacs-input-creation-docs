@@ -1,0 +1,17 @@
+site_name: BAC ESMACS Ligand Creation
+site_description: Description of methods to create BAC compatible protein-ligand system descriptions for ESMACS simulations
+site_author: David W. Wright
+
+pages:
+    - Home: index.md
+    - Preparation: preparation.md
+    - Antechamber I: antechamber_i.md
+    - Gaussian: gaussian.md
+    - Antechamber II: antechamber_ii.md
+    - Generate BAC inputs: generate_bac_inputs.md
+    - Testing: testing.md
+
+theme: readthedocs
+
+copyright: <p>Created by David W. Wright, source available at <a href="https://github.com/UCL-CCS/esmacs-input-creation-docs">https://github.com/UCL-CCS/esmacs-input-creation-docs</a></p> <img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"> This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/"/>Creative Commons Attribution-ShareAlike 4.0 International License.</a>
+
