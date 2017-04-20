@@ -5,9 +5,8 @@ site_author: David W. Wright
 pages:
     - Home: index.md
     - Preparation: preparation.md
-    - Antechamber I: antechamber_i.md
-    - Gaussian: gaussian.md
-    - Antechamber II: antechamber_ii.md
+    - Geometry Optimization: geometry_optimization.md
+    - Parameter Derivation: parameter_derivation.md
     - Generate BAC inputs: generate_bac_inputs.md
     - Testing: testing.md
 
