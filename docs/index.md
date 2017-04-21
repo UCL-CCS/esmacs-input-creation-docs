@@ -1,3 +1,4 @@
+# BAC ESMACS Ligand Creation
 
 The aim of this documentation is to guide the creation of ligand parameterizations and protein-ligand complex models for use in ufBAC.
 It only covers the single ligand parameterization required for the ESMACS family of protocols.
