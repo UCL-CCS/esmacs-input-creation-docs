@@ -1,8 +1,8 @@
 
 The aim of this documentation is to guide the creation of ligand parameterizations and protein-ligand complex models for use in ufBAC.
+It only covers the single ligand parameterization required for the ESMACS family of protocols.
 
-
-## Requirements:
+## Requirements
 
 In order to run the full workflow you will need access to two software packages:
 
@@ -15,10 +15,15 @@ If Gaussian is not available to you, it is possible to use the semi-empirical AM
 Atomic coordinates of the protein-ligand complex are also required (solvent molecules can also be accomodated).
 Furthermore, the following restrictions apply to these inputs:
 
-*  coordinates ust be in PDB format 
+*  coordinates ust be in PDB format
+*  all protein residues **must** be available in the standard Amber forcefield
 *  ligand must be located in a suitable initial binding pose
 *  protein sequence must be complete with no gaps between residues
-*  protein chains must be separated by TER cards
 
+## Outcomes
 
+This tutorial will run through all the steps needed to prepare protein-ligand system for ESMACS.
+It details the calculation of appropriate partial charges via Gaussian and the Antechamber tool and production of Amber *prep* and *frcmod* files containing the ligand parameterization.
+Additionally, it details the modified PDB format required by BAC and how to verify your model is suitable for simulation.
+Instructions are then provided on combining the PDB and forcefield files ready for upload to ufBAC.
 
