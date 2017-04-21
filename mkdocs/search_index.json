@@ -1,0 +1,124 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "The aim of this documentation is to guide the creation of ligand parameterizations and protein-ligand complex models for use in ufBAC.\nIt only covers the single ligand parameterization required for the ESMACS family of protocols.\n\n\nRequirements\n\n\nIn order to run the full workflow you will need access to two software packages:\n\n\n\n\nAmberTools\n (tested using version 14)\n\n\nGaussian\n (tested using Gaussian 09)\n\n\n\n\nAmberTools is free and provided under a GPL license, Gaussian is commercial software.\nIf Gaussian is not available to you, it is possible to use the semi-empirical AM1-BCC methodology.\n\n\nAtomic coordinates of the protein-ligand complex are also required (solvent molecules can also be accomodated).\nFurthermore, the following restrictions apply to these inputs:\n\n\n\n\ncoordinates ust be in PDB format\n\n\nall protein residues \nmust\n be available in the standard Amber forcefield\n\n\nligand must be located in a suitable initial binding pose\n\n\nprotein sequence must be complete with no gaps between residues\n\n\n\n\nOutcomes\n\n\nThis tutorial will run through all the steps needed to prepare protein-ligand system for ESMACS.\nIt details the calculation of appropriate partial charges via Gaussian and the Antechamber tool and production of Amber \nprep\n and \nfrcmod\n files containing the ligand parameterization.\nAdditionally, it details the modified PDB format required by BAC and how to verify your model is suitable for simulation.\nInstructions are then provided on combining the PDB and forcefield files ready for upload to ufBAC.",
+            "title": "Home"
+        },
+        {
+            "location": "/#requirements",
+            "text": "In order to run the full workflow you will need access to two software packages:   AmberTools  (tested using version 14)  Gaussian  (tested using Gaussian 09)   AmberTools is free and provided under a GPL license, Gaussian is commercial software.\nIf Gaussian is not available to you, it is possible to use the semi-empirical AM1-BCC methodology.  Atomic coordinates of the protein-ligand complex are also required (solvent molecules can also be accomodated).\nFurthermore, the following restrictions apply to these inputs:   coordinates ust be in PDB format  all protein residues  must  be available in the standard Amber forcefield  ligand must be located in a suitable initial binding pose  protein sequence must be complete with no gaps between residues",
+            "title": "Requirements"
+        },
+        {
+            "location": "/#outcomes",
+            "text": "This tutorial will run through all the steps needed to prepare protein-ligand system for ESMACS.\nIt details the calculation of appropriate partial charges via Gaussian and the Antechamber tool and production of Amber  prep  and  frcmod  files containing the ligand parameterization.\nAdditionally, it details the modified PDB format required by BAC and how to verify your model is suitable for simulation.\nInstructions are then provided on combining the PDB and forcefield files ready for upload to ufBAC.",
+            "title": "Outcomes"
+        },
+        {
+            "location": "/preparation/",
+            "text": "Protein model\n\n\nExtract ligand\n\n\nAdd hydrogens\n\n\nChecklist",
+            "title": "Preparation"
+        },
+        {
+            "location": "/preparation/#protein-model",
+            "text": "",
+            "title": "Protein model"
+        },
+        {
+            "location": "/preparation/#extract-ligand",
+            "text": "",
+            "title": "Extract ligand"
+        },
+        {
+            "location": "/preparation/#add-hydrogens",
+            "text": "",
+            "title": "Add hydrogens"
+        },
+        {
+            "location": "/preparation/#checklist",
+            "text": "",
+            "title": "Checklist"
+        },
+        {
+            "location": "/geometry_optimization/",
+            "text": "Antechamber\n\n\nGaussian",
+            "title": "Geometry Optimization"
+        },
+        {
+            "location": "/geometry_optimization/#antechamber",
+            "text": "",
+            "title": "Antechamber"
+        },
+        {
+            "location": "/geometry_optimization/#gaussian",
+            "text": "",
+            "title": "Gaussian"
+        },
+        {
+            "location": "/parameter_derivation/",
+            "text": "ESP format conversion\n\n\nRESP fitting\n\n\nCreate prepi and frcmod files\n\n\nCheck all is well",
+            "title": "Parameter Derivation"
+        },
+        {
+            "location": "/parameter_derivation/#esp-format-conversion",
+            "text": "",
+            "title": "ESP format conversion"
+        },
+        {
+            "location": "/parameter_derivation/#resp-fitting",
+            "text": "",
+            "title": "RESP fitting"
+        },
+        {
+            "location": "/parameter_derivation/#create-prepi-and-frcmod-files",
+            "text": "",
+            "title": "Create prepi and frcmod files"
+        },
+        {
+            "location": "/parameter_derivation/#check-all-is-well",
+            "text": "",
+            "title": "Check all is well"
+        },
+        {
+            "location": "/generate_bac_inputs/",
+            "text": "Combine ligand and protein PDBs\n\n\nSolvent\n\n\nAdd header\n\n\nOrganize files and create tarball",
+            "title": "Generate BAC inputs"
+        },
+        {
+            "location": "/generate_bac_inputs/#combine-ligand-and-protein-pdbs",
+            "text": "",
+            "title": "Combine ligand and protein PDBs"
+        },
+        {
+            "location": "/generate_bac_inputs/#solvent",
+            "text": "",
+            "title": "Solvent"
+        },
+        {
+            "location": "/generate_bac_inputs/#add-header",
+            "text": "",
+            "title": "Add header"
+        },
+        {
+            "location": "/generate_bac_inputs/#organize-files-and-create-tarball",
+            "text": "",
+            "title": "Organize files and create tarball"
+        },
+        {
+            "location": "/testing/",
+            "text": "Check PDB for obvious errors\n\n\nChecklist",
+            "title": "Testing"
+        },
+        {
+            "location": "/testing/#check-pdb-for-obvious-errors",
+            "text": "",
+            "title": "Check PDB for obvious errors"
+        },
+        {
+            "location": "/testing/#checklist",
+            "text": "",
+            "title": "Checklist"
+        }
+    ]
+}
