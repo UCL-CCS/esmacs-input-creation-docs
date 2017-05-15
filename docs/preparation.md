@@ -38,13 +38,13 @@ In the case of the 4BJX the protein residues are the only ones provided as `ATOM
 grep ^ATOM 4bjx.pdb > 4bjx-protein.pdb
 ```
 
-To remove alternative conformers for residues and get a report on any non-standard residues use `pdb4amber`, part of the AmberTools package.
+To remove alternative conformers for residues and get a report on any non-standard residues use `pdb4amber`, part of the AmberTools package:
 
 ```
-pdb4amber -i 4bjx-protein.pdb -o 4bjx-protein-stripped.pdb
+pdb4amber -i 4bjx-protein.pdb -o 4bjx-protein-stripped.pdb --nohyd
 ```
 
-This will save the updated coordinates in `4bjx-protein-stripped.pdb` and provide a short report to the console about the residues edited.
+This will save the updated coordinates in `4bjx-protein-stripped.pdb` and provide a short report to the console about the residues edited. The `--nohyd` flag removes hydrogens, you can leave this off if you are confident that the atoms present are correctly names for use in Amber.
 
 THE `END` line at the end of the file should be replaced with `TER` (using either a text editor or `sed`).
 For proteins containing multiple chains `TER` lines should be inserted between each pair .
@@ -84,3 +84,6 @@ grep " HOH | MG | ZN | CL | NA " 4bjx.pdb > 4bjx-solvent.pdb
 ```
 
 ## Prepare ligand for processing
+
+In order to parameterize the ligand we need to have a separate PDB containing only ligand atoms.
+Create this PDB using the same tools as for the protein and solvent atoms.
