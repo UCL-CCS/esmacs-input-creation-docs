@@ -1,4 +1,4 @@
-# BAC ESMACS Ligand Creation
+# BAC ESMACS Input Creation
 
 The aim of this documentation is to guide the creation of ligand parameterizations and protein-ligand complex models for use in ufBAC.
 It only covers the single ligand parameterization required for the ESMACS family of protocols.
@@ -27,4 +27,3 @@ This tutorial will run through all the steps needed to prepare protein-ligand sy
 It details the calculation of appropriate partial charges via Gaussian and the Antechamber tool and production of Amber *prep* and *frcmod* files containing the ligand parameterization.
 Additionally, it details the modified PDB format required by BAC and how to verify your model is suitable for simulation.
 Instructions are then provided on combining the PDB and forcefield files ready for upload to ufBAC.
-
