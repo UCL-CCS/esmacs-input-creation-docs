@@ -21,6 +21,8 @@ Furthermore, the following restrictions apply to these inputs:
 *  ligand must be located in a suitable initial binding pose
 *  protein sequence must be complete with no gaps between residues
 
+It is assumed throughout that the reader is familiar with the PDB format used to store atomic coordinates.
+
 ## Outcomes
 
 This tutorial will run through all the steps needed to prepare protein-ligand system for ESMACS.
