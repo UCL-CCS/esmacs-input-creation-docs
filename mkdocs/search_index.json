@@ -22,23 +22,28 @@
         },
         {
             "location": "/preparation/",
-            "text": "Protein model\n\n\nExtract ligand\n\n\nAdd hydrogens\n\n\nChecklist",
+            "text": "The BAC Builder script requires the input PDB structure to follow a particular format.\n\n\n\n\nAll chains to be included in the final model must have coordinates present (BIOMT records, etc. will not be applied)\n\n\nThe sequence must contain unambiguous coordinates for each residue and atom (i.e. no alternative locations or residues)\n\n\nAll hydrogen atoms should be removed\n\n\nChains must contain no gaps and residues numbered sequentially\n\n\nEach chain must have a unique ID and end with a TER card\n\n\nChains must be present in a particular order: protein, ligand, solvent.\n\n\nAll residues included must be compatible with the Amber forcefield. In the case of the ligand, this means that the included version of the coordinates should be those generated during parameterization (to ensure atom names are consistent).\n\n\n\n\nModels for preparation in BAC can come from many sources but a common scenario is that the starting point is a PDB containing coordinates for all components of the system.\nIn this section we detail the steps necessary to create a BAC input PDB from such a model.\nThe PDB \nexample file\n is used as an example to illustrate the general process.\n\n\nIn this example we assume that you begin with a PDB containing all elements of the system.\nWhere multiple ligands are to be added to the same protein receptor then once the protein structure has been prepares once you can skip to the \nligand preparation\n section to create input for parameterization.\n\n\nProtein model\n\n\npdb4amber\n which is part of the AmberTools package (use the \n--help\n flag to view the available options) can be used to help in this process.\n\n\nDisulphide bonds\n\n\nSolvent molecules\n\n\nPrepare ligand for processing\n\n\nChecklist",
             "title": "Preparation"
         },
         {
             "location": "/preparation/#protein-model",
-            "text": "",
+            "text": "pdb4amber  which is part of the AmberTools package (use the  --help  flag to view the available options) can be used to help in this process.",
             "title": "Protein model"
         },
         {
-            "location": "/preparation/#extract-ligand",
+            "location": "/preparation/#disulphide-bonds",
             "text": "",
-            "title": "Extract ligand"
+            "title": "Disulphide bonds"
         },
         {
-            "location": "/preparation/#add-hydrogens",
+            "location": "/preparation/#solvent-molecules",
             "text": "",
-            "title": "Add hydrogens"
+            "title": "Solvent molecules"
+        },
+        {
+            "location": "/preparation/#prepare-ligand-for-processing",
+            "text": "",
+            "title": "Prepare ligand for processing"
         },
         {
             "location": "/preparation/#checklist",
@@ -87,7 +92,7 @@
         },
         {
             "location": "/generate_bac_inputs/",
-            "text": "Combine ligand and protein PDBs\n\n\nSolvent\n\n\nAdd header\n\n\nOrganize files and create tarball",
+            "text": "Combine ligand and protein PDBs\n\n\nSolvent\n\n\nAdd header\n\n\nAdditionally, a BAC specific header should be included at the top of the file.\nThis simply contains the number of protein chains included.\n\n\nREMARK   6 PROTEIN CHAINS 1\n\n\n\n\nAs the PDB format is based on columns the \nREMARK   6 PROTEIN CHAINS\n section (up to the figure for the number of protein chains) must be reproduced exactly.\n\n\nOrganize files and create tarball",
             "title": "Generate BAC inputs"
         },
         {
@@ -102,7 +107,7 @@
         },
         {
             "location": "/generate_bac_inputs/#add-header",
-            "text": "",
+            "text": "Additionally, a BAC specific header should be included at the top of the file.\nThis simply contains the number of protein chains included.  REMARK   6 PROTEIN CHAINS 1  As the PDB format is based on columns the  REMARK   6 PROTEIN CHAINS  section (up to the figure for the number of protein chains) must be reproduced exactly.",
             "title": "Add header"
         },
         {

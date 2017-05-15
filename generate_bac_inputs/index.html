@@ -133,6 +133,12 @@
                 <h2 id="combine-ligand-and-protein-pdbs">Combine ligand and protein PDBs</h2>
 <h3 id="solvent">Solvent</h3>
 <h2 id="add-header">Add header</h2>
+<p>Additionally, a BAC specific header should be included at the top of the file.
+This simply contains the number of protein chains included.</p>
+<pre><code>REMARK   6 PROTEIN CHAINS 1
+</code></pre>
+
+<p>As the PDB format is based on columns the <code>REMARK   6 PROTEIN CHAINS</code> section (up to the figure for the number of protein chains) must be reproduced exactly.</p>
 <h2 id="organize-files-and-create-tarball">Organize files and create tarball</h2>
               
             </div>

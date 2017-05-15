@@ -59,11 +59,17 @@
             
     <li class="toctree-l2"><a href="#protein-model">Protein model</a></li>
     
-
-    <li class="toctree-l2"><a href="#extract-ligand">Extract ligand</a></li>
+        <ul>
+        
+            <li><a class="toctree-l3" href="#disulphide-bonds">Disulphide bonds</a></li>
+        
+        </ul>
     
 
-    <li class="toctree-l2"><a href="#add-hydrogens">Add hydrogens</a></li>
+    <li class="toctree-l2"><a href="#solvent-molecules">Solvent molecules</a></li>
+    
+
+    <li class="toctree-l2"><a href="#prepare-ligand-for-processing">Prepare ligand for processing</a></li>
     
 
     <li class="toctree-l2"><a href="#checklist">Checklist</a></li>
@@ -127,9 +133,26 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="protein-model">Protein model</h2>
-<h2 id="extract-ligand">Extract ligand</h2>
-<h2 id="add-hydrogens">Add hydrogens</h2>
+                <p>The BAC Builder script requires the input PDB structure to follow a particular format.</p>
+<ol>
+<li>All chains to be included in the final model must have coordinates present (BIOMT records, etc. will not be applied)</li>
+<li>The sequence must contain unambiguous coordinates for each residue and atom (i.e. no alternative locations or residues)</li>
+<li>All hydrogen atoms should be removed</li>
+<li>Chains must contain no gaps and residues numbered sequentially</li>
+<li>Each chain must have a unique ID and end with a TER card</li>
+<li>Chains must be present in a particular order: protein, ligand, solvent.</li>
+<li>All residues included must be compatible with the Amber forcefield. In the case of the ligand, this means that the included version of the coordinates should be those generated during parameterization (to ensure atom names are consistent).</li>
+</ol>
+<p>Models for preparation in BAC can come from many sources but a common scenario is that the starting point is a PDB containing coordinates for all components of the system.
+In this section we detail the steps necessary to create a BAC input PDB from such a model.
+The PDB <a href="">example file</a> is used as an example to illustrate the general process.</p>
+<p>In this example we assume that you begin with a PDB containing all elements of the system.
+Where multiple ligands are to be added to the same protein receptor then once the protein structure has been prepares once you can skip to the <a href="#prepare-ligand">ligand preparation</a> section to create input for parameterization.</p>
+<h2 id="protein-model">Protein model</h2>
+<p><code>pdb4amber</code> which is part of the AmberTools package (use the <code>--help</code> flag to view the available options) can be used to help in this process.</p>
+<h3 id="disulphide-bonds">Disulphide bonds</h3>
+<h2 id="solvent-molecules">Solvent molecules</h2>
+<h2 id="prepare-ligand-for-processing">Prepare ligand for processing</h2>
 <h2 id="checklist">Checklist</h2>
               
             </div>
