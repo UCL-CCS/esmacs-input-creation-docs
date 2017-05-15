@@ -11,17 +11,28 @@ The BAC Builder script requires the input PDB structure to follow a particular f
 
 Models for preparation in BAC can come from many sources but a common scenario is that the starting point is a PDB containing coordinates for all components of the system.
 In this section we detail the steps necessary to create a BAC input PDB from such a model.
-The PDB [example file]() is used as an example to illustrate the general process.
+The PDB [4BJX](examples/4bjx.pdb) is used as an example to illustrate the general process (it can be downloaded from the link for using following along).
 
 In this example we assume that you begin with a PDB containing all elements of the system.
 Where multiple ligands are to be added to the same protein receptor then once the protein structure has been prepares once you can skip to the [ligand preparation](#prepare-ligand) section to create input for parameterization.
 
 ## Protein model
 
+The example structure contains a protein, ligand and solvent molecules (see picture below).
+The first step is to separate the protein chains and ensure they are ready for incorporation in the final model.
+
+![4BJX structure](images/4bjx-init.png)
+
+The protein model must be extracted from the PDB.
+Simple ways of achieving this in general include the use of protein selections within viewers such as [VMD](http://www.ks.uiuc.edu/Research/vmd/) or using a text editor.
+In the case of the 4BJX the protein residues are the only ones listed using `ATOM` records meaning that a `sed` in Linux command can be used to gain the proein residues alone:
+
+
 
 
 `pdb4amber` which is part of the AmberTools package (use the `--help` flag to view the available options) can be used to help in this process.
 
+### Biological units
 
 ### Disulphide bonds
 
