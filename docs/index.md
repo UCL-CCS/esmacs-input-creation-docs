@@ -13,10 +13,10 @@ In order to run the full workflow you will need access to two software packages:
 AmberTools is free and provided under a GPL license, Gaussian is commercial software.
 If Gaussian is not available to you, it is possible to use the semi-empirical AM1-BCC methodology.
 
-Atomic coordinates of the protein-ligand complex are also required (solvent molecules can also be accomodated).
+Atomic coordinates of the protein-ligand complex are also required (solvent molecules can also be accommodated).
 Furthermore, the following restrictions apply to these inputs:
 
-*  coordinates ust be in PDB format
+*  coordinates must be in PDB format
 *  all protein residues **must** be available in the standard Amber forcefield
 *  ligand must be located in a suitable initial binding pose
 *  protein sequence must be complete with no gaps between residues
