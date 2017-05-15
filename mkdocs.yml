@@ -1,4 +1,4 @@
-site_name: BAC ESMACS Ligand Creation
+site_name: BAC ESMACS Input Creation
 site_description: Description of methods to create BAC compatible protein-ligand system descriptions for ESMACS simulations
 repo_url: https://github.com/UCL-CCS/esmacs-input-creation-docs
 edit_uri: blob/master/docs/
@@ -6,7 +6,7 @@ site_author: David W. Wright
 
 pages:
     - Home: index.md
-    - Preparation: preparation.md
+    - Initial preparation: preparation.md
     - Geometry Optimization: geometry_optimization.md
     - Parameter Derivation: parameter_derivation.md
     - Generate BAC inputs: generate_bac_inputs.md
