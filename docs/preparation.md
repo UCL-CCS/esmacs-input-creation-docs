@@ -61,10 +61,26 @@ No transforms are applied by BAC Builder so these need to be accounted for befor
 ### Disulphide bonds
 
 A file, with the suffix '\_sslinks', detailing the bonds to be made should be provided by `pdb4amber`.
-Retain this file as it will be included in teh final system description.
+Retain this file as it will be included in the final system description.
 
 ## Solvent molecules
 
+Any solvent molecules you wish to be retained in the final model must be extracted from the PDB.
+Again, this can be done using selections within viewers like VMD or a text editor.
+BAC Builder can only parse a small number of solvent atoms
 
+| Solvent molecule    | Residue Name |
+|---------------------|--------------|
+|Water                |     HOH      |
+|Magnesium            |     MG       |
+|Zinc                 |     ZN       |
+|Chlorine             |     CL       |
+|Sodium               |     NA       |
+
+The solvent can be extracted from 4BJX using:
+
+```
+grep " HOH | MG | ZN | CL | NA " 4bjx.pdb > 4bjx-solvent.pdb
+```
 
 ## Prepare ligand for processing
