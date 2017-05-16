@@ -126,7 +126,19 @@
               
                 <h2 id="combine-component-pdbs">Combine component PDBs</h2>
 <p>As noted earlier BAC expects the PDB to have a set structure - protein, lgand and then solvent.
-It also expects <code>TER</code> cards between chains.</p>
+It also expects <code>TER</code> cards between chains.
+During this tutorial we have prepared files for each of these sections, edited to meet teh requirements of Amber and BAC:</p>
+<ul>
+<li>Protein: 4bjx-protein-stripped.pdb</li>
+<li>Ligand: l01.pdb</li>
+<li>Solvent: 4bjx-solvent.pdb</li>
+</ul>
+<p>If all three files have been properly prepared the combination of the sections can be as simple as:</p>
+<pre><code>cat 4bjx-protein-stripped.pdb l01.pdb 4bjx-solvent.pdb &gt; bet-l01.pdb
+</code></pre>
+
+<p>When naming the final PDB it is helpful to use a meaningful name.
+Here <em>bet-l01.pdb</em> combines the protein name (it is a BRD4 structure, these are members of the Bromo-and Extra-Terminal domain, BET, family) and the ligand name.</p>
 <p>Be careful to ensure that any <code>END</code> cards only appear as the very last line of the file.</p>
 <h2 id="add-header">Add header</h2>
 <p>Additionally, a BAC specific header should be included at the top of the file.
@@ -135,7 +147,10 @@ This simply contains the number of protein chains included.</p>
 </code></pre>
 
 <p>As the PDB format is based on columns the <code>REMARK   6 PROTEIN CHAINS</code> section (up to the figure for the number of protein chains) must be reproduced exactly.</p>
+<p>The protein used here contains only one chain, so edit <em>bet-l01.pdb</em> file accordingly.</p>
 <h2 id="organize-files-and-create-tarball">Organize files and create tarball</h2>
+<p>For upload into BAC a particular arrangement of files is needed.</p>
+<p>Create a directory, names using the lowercase version of the ligand residue name:</p>
 <pre><code>mkdir l01
 </code></pre>
 
@@ -144,7 +159,7 @@ This simply contains the number of protein chains included.</p>
 cp l01.prep l01
 </code></pre>
 
-<p>Finally, we create a tarball containing the directory we created:</p>
+<p>Finally, create a tarball containing the directory we created:</p>
 <pre><code>tar cfv bet-l01.tar l01
 </code></pre>
 

@@ -73,7 +73,7 @@
     <li class="toctree-l2"><a href="#create-prep-and-frcmod-files">Create prep and frcmod files</a></li>
     
 
-    <li class="toctree-l2"><a href="#check-all-is-well">Check all is well</a></li>
+    <li class="toctree-l2"><a href="#test-the-parameters">Test the parameters</a></li>
     
 
     </ul>
@@ -158,8 +158,9 @@ An easy way of achieving this is to run the command:</p>
 <p>Remove any header lines from the resultant PDB (<code>reduce</code> adds one beginning 'USER  MOD').</p>
 <p>For use in BAC the ligand PDB (<em>l01.pdb</em> in the example) should be checked to ensure that it does not contain entries in the element column.
 In particular entries for chlorine can be a problem.</p>
-<h2 id="check-all-is-well">Check all is well</h2>
-<p><em>test.leapin</em></p>
+<h2 id="test-the-parameters">Test the parameters</h2>
+<p>To test that this process has gone correctly it is often a good idea to build a ligand only system which could be used for simulation.
+To do so we need to use a <code>tLeap</code> script, like the one below:</p>
 <pre><code>source leaprc.gaff
 frcmod = loadamberparams l01.frcmod
 loadamberprep l01.prep
@@ -168,6 +169,13 @@ saveamberprep mol test.prepc
 saveamberparm mol test.top test.crd
 savepdb mol test.pdb
 quit
+</code></pre>
+
+<p>This script loads the GAFF force field and the files we have created to describe our ligand.
+It then used these to create simulation ready topology and coordinate files.
+A copy of this script can be downloaded here: <a href="../examples/test.leapin"><em>test.leapin</em></a>.
+Run this to produce a ligand model using <code>tleap</code>:</p>
+<pre><code>tleap -f test.leapin
 </code></pre>
 
 <p>A common reason for failure is that some atom names change capitalization in the Antechamber process (in particular 'CL' becoming 'Cl' and 'BR' turning into 'Br').
