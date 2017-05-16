@@ -64,16 +64,14 @@
             
     <li class="toctree-l2"><a href="#initial-steps-using-antechamber">Initial steps using Antechamber</a></li>
     
-
-    <li class="toctree-l2"><a href="#hf6-31g-scftight-test-popmk-iop6332-iop6426-opt">HF/6-31G* SCF=tight Test Pop=MK iop(6/33=2) iop(6/42=6) opt</a></li>
-    
         <ul>
         
             <li><a class="toctree-l3" href="#non-standard-approach-using-am1-bcc">Non-standard approach (using AM1-BCC)</a></li>
         
-            <li><a class="toctree-l3" href="#geometry-optimization-gaussian">Geometry optimization (Gaussian)</a></li>
-        
         </ul>
+    
+
+    <li class="toctree-l2"><a href="#geometry-optimization-gaussian">Geometry optimization (Gaussian)</a></li>
     
 
     </ul>
@@ -154,8 +152,8 @@ For example if we thought the ligand had a charge of +1 we would use:</p>
 <p>The first few lines of the Gaussian input file generated will look something like this:</p>
 <blockquote>
 <p>--Link1--
-%chk=molecule</p>
-<h1 id="hf6-31g-scftight-test-popmk-iop6332-iop6426-opt">HF/6-31G* SCF=tight Test Pop=MK iop(6/33=2) iop(6/42=6) opt</h1>
+%chk=molecule
+#HF/6-31G* SCF=tight Test Pop=MK iop(6/33=2) iop(6/42=6) opt</p>
 <p>remark line goes here</p>
 <p>0   1
    C   15.0320000000        6.0240000000       10.0040000000   <br />
