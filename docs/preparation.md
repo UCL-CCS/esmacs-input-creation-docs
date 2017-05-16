@@ -94,4 +94,4 @@ The ligand can be extracted from 4BJX using:
 grep "73B" 4bjx.pdb | grep HETATM > 4bjx-ligand.pdb
 ```
 
-In teh next section we will see how to create a parameterization for the ligand.
+In the next section we will see how to create a parameterization for the ligand.
