@@ -49,7 +49,7 @@ The first few lines of the Gaussian input file generated will look something lik
 The meaning of the Gaussian options, found in the third line, are as follows:
 
 * Opt: We ask for optimization of our structure
-* HF/6-31G*: We are using 6-31G* basis set
+* HF/6-31G\*: We are using the 6-31G\* basis set
 * Pop=MK: The output will contain Merz-Kollman atomic charges (fitted to the electrostatic potential)
 * iop(6/33=2): Output grid of values of describing the electrostatic potentail.
 This will used in the latter RESP step to create the partial charges used in the final parameterization.
