@@ -62,8 +62,10 @@ This section is something of an aside and is included for completeness only, ski
 If you wish to create the topology without Gaussian optimization and using the AM1-BCC approach to charges this can be achieved with a single command:
 
 ```
-antechamber -i sustiva_new.pdb -fi pdb -o sustiva.prep -fo prepi -c bcc -at gaff -j 4
+antechamber -i 4bjx-ligand-h.pdb -fi pdb -o l01.prep -fo prepi -c bcc -at gaff -j 4 -rn L01
 ```
+
+Here the ligand is renamed 'L01'.
 
 If you use this approach you can skip the section below on Gaussian and the next Antechamber step and move straight to the [BAC input generation]() section.
 
@@ -78,24 +80,4 @@ g09 < 4bjx-ligand.gau > 4bjx-ligand.out
 
 However, this process can take a long time and it is recommended that the job is executed using a batch system. The details of executing that run will be dependent on your system setup.
 
-## RESP fitting (Antechamber)
-
-Once the electrostatic potential has been successfully generated a two step process is used to convert this into RESP fitted charges.
-In these commands the new options are; `-c` charge method and `cf` for charge filename. The '.ac' file is an intermediate file and most options are selct explanatory, except `-c wc` which simply means 'write out charge'.
-
-```
-antechamber -fi gout -fo ac -i 4bjx-ligand.out -o resp.ac -c resp
-antechamber -fi ac -i resp.ac -c wc -cf resp.crg
-```
-
-## Create prep and frcmod files
-
-```
-antechamber -i resp.ac -fi ac -c rc -cf resp.crg -o lig$ii.prep -fo prepi -ao name -a ../../ligand_pdbs/atom_renamed_pdbs/lig$ii.pdb -fa pdb -rn L$ii
-```
-
-```
-parmchk -i lig$ii.prep -f prepi -o lig$ii.frcmod
-```
-
-## Check all is well
+In the next section we will use the electrostatic potential to generate partial charges for our ligand.
