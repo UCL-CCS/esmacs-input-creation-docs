@@ -62,10 +62,24 @@
     <a class="current" href="./">Geometry Optimization</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#antechamber">Antechamber</a></li>
+    <li class="toctree-l2"><a href="#initial-steps-using-antechamber">Initial steps using Antechamber</a></li>
     
 
-    <li class="toctree-l2"><a href="#gaussian">Gaussian</a></li>
+    <li class="toctree-l2"><a href="#hf6-31g-scftight-test-popmk-iop6332-iop6426-opt">HF/6-31G* SCF=tight Test Pop=MK iop(6/33=2) iop(6/42=6) opt</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#non-standard-approach-using-am1-bcc">Non-standard approach (using AM1-BCC)</a></li>
+        
+            <li><a class="toctree-l3" href="#geometry-optimization-gaussian">Geometry optimization (Gaussian)</a></li>
+        
+            <li><a class="toctree-l3" href="#resp-fitting-antechamber">RESP fitting (Antechamber)</a></li>
+        
+            <li><a class="toctree-l3" href="#create-prep-and-frcmod-files">Create prep and frcmod files</a></li>
+        
+            <li><a class="toctree-l3" href="#check-all-is-well">Check all is well</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -121,8 +135,78 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="antechamber">Antechamber</h2>
-<h2 id="gaussian">Gaussian</h2>
+                <p>The next stage will require that any hydrogens which are part of the ligand are added (these are usually not resolved in crystal structures).
+AmberTools provides a tool for estimating the protonation of ligands called reduce.
+To use this tool on the example 4BJX ligand extracted in the last section use the command:</p>
+<pre><code>reduce 4bjx-ligand.pdb &gt; 4bjx-ligand-h.pdb
+</code></pre>
+
+<p>A wide variety of other ways to add these atoms are possible, one popular option in <a href="http://openbabel.org/">OpenBabel</a>.</p>
+<h2 id="initial-steps-using-antechamber">Initial steps using Antechamber</h2>
+<p>Antechamber is designed to allow the rapid generation of topology files for ligands using the generalized Amber force field (GAFF).
+Two charge methods can be used HF/6-31G<em> RESP or AM1-BCC.
+The work conducted to date with BAC has focussed on the HF/6-31G</em> RESP method used to parameterize much of the main Amber forcefield.
+It is this approach that we will be detailing in the next two sections, although we will briefly mention the command used to complete the AM1-BCC approach as this eliminated the need for time consuming Gaussian calculations.</p>
+<p>The first step to using Antechamber in this context is to generate the input file for Gaussian to optimize the ligand and generate a quantum-chemically calculated electrostatic potential.</p>
+<p>For neutral ligands it is sufficient to specify only the input PDB (<code>-fi</code> specifies the format and <code>-i</code> the filename) and the output file (<code>-fo</code> specifies the format and <code>-o</code> the filename):</p>
+<pre><code>antechamber -fi pdb -fo gcrt -i 4bjx-ligand-h.pdb -o 4bjx-ligand.gau
+</code></pre>
+
+<p>If the ligand is charged and extra option for the net charge, <code>-nc</code>, must be used.
+For example if we thought the ligand had a charge of +1 we would use:</p>
+<pre><code>antechamber -fi pdb -fo gcrt -i 4bjx-ligand-h.pdb -o 4bjx-ligand.gau -nc 1
+</code></pre>
+
+<p>The first few lines of the Gaussian input file generated will look something like this:</p>
+<blockquote>
+<p>--Link1--
+%chk=molecule</p>
+<h1 id="hf6-31g-scftight-test-popmk-iop6332-iop6426-opt">HF/6-31G* SCF=tight Test Pop=MK iop(6/33=2) iop(6/42=6) opt</h1>
+<p>remark line goes here</p>
+<p>0   1
+   C   15.0320000000        6.0240000000       10.0040000000   <br />
+   C   14.0090000000        5.1520000000        9.2570000000   <br />
+   C   14.6530000000        4.2700000000        8.1860000000</p>
+<p>...</p>
+</blockquote>
+<p>The meaning of the Gaussian options, found in the third line, are as follows:</p>
+<ul>
+<li>Opt: We ask for optimization of our structure</li>
+<li>HF/6-31G*: We are using the 6-31G* basis set</li>
+<li>Pop=MK: The output will contain Merz-Kollman atomic charges (fitted to the electrostatic potential)</li>
+<li>iop(6/33=2): Output grid of values of describing the electrostatic potentail.
+This will used in the latter RESP step to create the partial charges used in the final parameterization.</li>
+</ul>
+<p>The values on line 7 are the net charge and the multiplicity.</p>
+<h3 id="non-standard-approach-using-am1-bcc">Non-standard approach (using AM1-BCC)</h3>
+<p>This section is something of an aside and is included for completeness only, skip if you are only interested in creating standard BAC parameterizations.
+If you wish to create the topology without Gaussian optimization and using the AM1-BCC approach to charges this can be achieved with a single command:</p>
+<pre><code>antechamber -i sustiva_new.pdb -fi pdb -o sustiva.prep -fo prepi -c bcc -at gaff -j 4
+</code></pre>
+
+<p>If you use this approach you can skip the section below on Gaussian and the next Antechamber step and move straight to the <a href="">BAC input generation</a> section.</p>
+<h2 id="geometry-optimization-gaussian">Geometry optimization (Gaussian)</h2>
+<p>To run the geometry optimization in Gaussian and obtain the electrostatic potential it is a simple Gaussian run.
+In principle this can be achieved using the command (for Gaussian 09):</p>
+<pre><code>g09 &lt; 4bjx-ligand.gau &gt; 4bjx-ligand.out
+</code></pre>
+
+<p>However, this process can take a long time and it is recommended that the job is executed using a batch system. The details of executing that run will be dependent on your system setup.</p>
+<h2 id="resp-fitting-antechamber">RESP fitting (Antechamber)</h2>
+<p>Once the electrostatic potential has been successfully generated a two step process is used to convert this into RESP fitted charges.
+In these commands the new options are; <code>-c</code> charge method and <code>cf</code> for charge filename. The '.ac' file is an intermediate file and most options are selct explanatory, except <code>-c wc</code> which simply means 'write out charge'.</p>
+<pre><code>antechamber -fi gout -fo ac -i 4bjx-ligand.out -o resp.ac -c resp
+antechamber -fi ac -i resp.ac -c wc -cf resp.crg
+</code></pre>
+
+<h2 id="create-prep-and-frcmod-files">Create prep and frcmod files</h2>
+<pre><code>antechamber -i resp.ac -fi ac -c rc -cf resp.crg -o lig$ii.prep -fo prepi -ao name -a ../../ligand_pdbs/atom_renamed_pdbs/lig$ii.pdb -fa pdb -rn L$ii
+</code></pre>
+
+<pre><code>parmchk -i lig$ii.prep -f prepi -o lig$ii.frcmod
+</code></pre>
+
+<h2 id="check-all-is-well">Check all is well</h2>
               
             </div>
           </div>

@@ -137,14 +137,16 @@ It only covers the single ligand parameterization required for the ESMACS family
 </ol>
 <p>AmberTools is free and provided under a GPL license, Gaussian is commercial software.
 If Gaussian is not available to you, it is possible to use the semi-empirical AM1-BCC methodology.</p>
-<p>Atomic coordinates of the protein-ligand complex are also required (solvent molecules can also be accomodated).
+<p>Atomic coordinates of the protein-ligand complex are also required (solvent molecules can also be accommodated).
 Furthermore, the following restrictions apply to these inputs:</p>
 <ul>
-<li>coordinates ust be in PDB format</li>
+<li>coordinates must be in PDB format</li>
 <li>all protein residues <strong>must</strong> be available in the standard Amber forcefield</li>
 <li>ligand must be located in a suitable initial binding pose</li>
 <li>protein sequence must be complete with no gaps between residues</li>
 </ul>
+<p>It is assumed throughout that the reader is familiar with the PDB format used to store atomic coordinates.
+We further suppose that you either have the AmberTools available in your run path or know how to adapt the path used to execute the commands.</p>
 <h2 id="outcomes">Outcomes</h2>
 <p>This tutorial will run through all the steps needed to prepare protein-ligand system for ESMACS.
 It details the calculation of appropriate partial charges via Gaussian and the Antechamber tool and production of Amber <em>prep</em> and <em>frcmod</em> files containing the ligand parameterization.
@@ -200,5 +202,5 @@ Instructions are then provided on combining the PDB and forcefield files ready f
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2017-05-15 08:32:27
+Build Date UTC : 2017-05-16 10:56:20
 -->
