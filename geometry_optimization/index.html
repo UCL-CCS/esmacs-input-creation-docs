@@ -150,17 +150,18 @@ For example if we thought the ligand had a charge of +1 we would use:</p>
 </code></pre>
 
 <p>The first few lines of the Gaussian input file generated will look something like this:</p>
-<blockquote>
-<p>--Link1--
+<pre><code>--Link1--
 %chk=molecule
-#HF/6-31G* SCF=tight Test Pop=MK iop(6/33=2) iop(6/42=6) opt</p>
-<p>remark line goes here</p>
-<p>0   1
-   C   15.0320000000        6.0240000000       10.0040000000   <br />
-   C   14.0090000000        5.1520000000        9.2570000000   <br />
-   C   14.6530000000        4.2700000000        8.1860000000</p>
-<p>...</p>
-</blockquote>
+#HF/6-31G* SCF=tight Test Pop=MK iop(6/33=2) iop(6/42=6) opt
+
+remark line goes here
+
+0   1
+    C   15.0320000000        6.0240000000       10.0040000000     
+    C   14.0090000000        5.1520000000        9.2570000000     
+    C   14.6530000000        4.2700000000        8.1860000000
+</code></pre>
+
 <p>The meaning of the Gaussian options, found in the third line, are as follows:</p>
 <ul>
 <li>Opt: We ask for optimization of our structure</li>
