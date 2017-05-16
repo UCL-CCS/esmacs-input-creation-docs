@@ -66,7 +66,7 @@ Retain this file as it will be included in the final system description.
 ## Solvent molecules
 
 Any solvent molecules you wish to be retained in the final model must be extracted from the PDB.
-Again, this can be done using selections within viewers like VMD or a text editor.
+Again, this can be done using a variety of methods (VMD, text editor, etc.).
 BAC Builder can only parse a small number of solvent atoms
 
 | Solvent molecule    | Residue Name |
@@ -91,5 +91,5 @@ Create this PDB using the same tools as for the protein and solvent atoms.
 
 The ligand can be extracted from 4BJX using:
 ```
-grep "73B" 4bjx.pdb > 4bjx-ligand.pdb
+grep "73B" 4bjx.pdb | grep HETATM > 4bjx-ligand.pdb
 ```
