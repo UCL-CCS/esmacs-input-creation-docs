@@ -1,3 +1,4 @@
+Now that the electrostatic potential is known we need to use this to produce a ligand description for incorporation into the Amber force field.
 
 ## RESP fitting
 
@@ -41,7 +42,25 @@ An easy way of achieving this is to run the command:
 sed 's/73B/L01/' 4bjx-ligand-h.pdb > l01.pdb
 ```
 
+Remove any header lines from the resultant PDB (`reduce` adds one beginning 'USER  MOD').
+
 For use in BAC the ligand PDB (*l01.pdb* in the example) should be checked to ensure that it does not contain entries in the element column.
 In particular entries for chlorine can be a problem.
 
 ## Check all is well
+
+*test.leapin*
+
+```
+source leaprc.gaff
+frcmod = loadamberparams l01.frcmod
+loadamberprep l01.prep
+mol = loadpdb l01.pdb
+saveamberprep mol test.prepc
+saveamberparm mol test.top test.crd
+savepdb mol test.pdb
+quit
+```
+
+A common reason for failure is that some atom names change capitalization in the Antechamber process (in particular 'CL' becoming 'Cl' and 'BR' turning into 'Br').
+It is easiest to change the case in the PDB as the entries only appear once (as opposed to the *.prep* file where they appear in atom and connectivity lines).
