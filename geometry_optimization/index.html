@@ -73,12 +73,6 @@
         
             <li><a class="toctree-l3" href="#geometry-optimization-gaussian">Geometry optimization (Gaussian)</a></li>
         
-            <li><a class="toctree-l3" href="#resp-fitting-antechamber">RESP fitting (Antechamber)</a></li>
-        
-            <li><a class="toctree-l3" href="#create-prep-and-frcmod-files">Create prep and frcmod files</a></li>
-        
-            <li><a class="toctree-l3" href="#check-all-is-well">Check all is well</a></li>
-        
         </ul>
     
 
@@ -181,9 +175,10 @@ This will used in the latter RESP step to create the partial charges used in the
 <h3 id="non-standard-approach-using-am1-bcc">Non-standard approach (using AM1-BCC)</h3>
 <p>This section is something of an aside and is included for completeness only, skip if you are only interested in creating standard BAC parameterizations.
 If you wish to create the topology without Gaussian optimization and using the AM1-BCC approach to charges this can be achieved with a single command:</p>
-<pre><code>antechamber -i sustiva_new.pdb -fi pdb -o sustiva.prep -fo prepi -c bcc -at gaff -j 4
+<pre><code>antechamber -i 4bjx-ligand-h.pdb -fi pdb -o l01.prep -fo prepi -c bcc -at gaff -j 4 -rn L01
 </code></pre>
 
+<p>Here the ligand is renamed 'L01'.</p>
 <p>If you use this approach you can skip the section below on Gaussian and the next Antechamber step and move straight to the <a href="">BAC input generation</a> section.</p>
 <h2 id="geometry-optimization-gaussian">Geometry optimization (Gaussian)</h2>
 <p>To run the geometry optimization in Gaussian and obtain the electrostatic potential it is a simple Gaussian run.
@@ -192,21 +187,7 @@ In principle this can be achieved using the command (for Gaussian 09):</p>
 </code></pre>
 
 <p>However, this process can take a long time and it is recommended that the job is executed using a batch system. The details of executing that run will be dependent on your system setup.</p>
-<h2 id="resp-fitting-antechamber">RESP fitting (Antechamber)</h2>
-<p>Once the electrostatic potential has been successfully generated a two step process is used to convert this into RESP fitted charges.
-In these commands the new options are; <code>-c</code> charge method and <code>cf</code> for charge filename. The '.ac' file is an intermediate file and most options are selct explanatory, except <code>-c wc</code> which simply means 'write out charge'.</p>
-<pre><code>antechamber -fi gout -fo ac -i 4bjx-ligand.out -o resp.ac -c resp
-antechamber -fi ac -i resp.ac -c wc -cf resp.crg
-</code></pre>
-
-<h2 id="create-prep-and-frcmod-files">Create prep and frcmod files</h2>
-<pre><code>antechamber -i resp.ac -fi ac -c rc -cf resp.crg -o lig$ii.prep -fo prepi -ao name -a ../../ligand_pdbs/atom_renamed_pdbs/lig$ii.pdb -fa pdb -rn L$ii
-</code></pre>
-
-<pre><code>parmchk -i lig$ii.prep -f prepi -o lig$ii.frcmod
-</code></pre>
-
-<h2 id="check-all-is-well">Check all is well</h2>
+<p>In the next section we will use the electrostatic potential to generate partial charges for our ligand.</p>
               
             </div>
           </div>
