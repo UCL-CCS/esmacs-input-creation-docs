@@ -72,13 +72,7 @@
     <a class="current" href="./">Generate BAC inputs</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#combine-ligand-and-protein-pdbs">Combine ligand and protein PDBs</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#solvent">Solvent</a></li>
-        
-        </ul>
+    <li class="toctree-l2"><a href="#combine-component-pdbs">Combine component PDBs</a></li>
     
 
     <li class="toctree-l2"><a href="#add-header">Add header</a></li>
@@ -130,8 +124,10 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="combine-ligand-and-protein-pdbs">Combine ligand and protein PDBs</h2>
-<h3 id="solvent">Solvent</h3>
+                <h2 id="combine-component-pdbs">Combine component PDBs</h2>
+<p>As noted earlier BAC expects the PDB to have a set structure - protein, lgand and then solvent.
+It also expects <code>TER</code> cards between chains.</p>
+<p>Be careful to ensure that any <code>END</code> cards only appear as the very last line of the file.</p>
 <h2 id="add-header">Add header</h2>
 <p>Additionally, a BAC specific header should be included at the top of the file.
 This simply contains the number of protein chains included.</p>
@@ -140,6 +136,19 @@ This simply contains the number of protein chains included.</p>
 
 <p>As the PDB format is based on columns the <code>REMARK   6 PROTEIN CHAINS</code> section (up to the figure for the number of protein chains) must be reproduced exactly.</p>
 <h2 id="organize-files-and-create-tarball">Organize files and create tarball</h2>
+<pre><code>mkdir l01
+</code></pre>
+
+<p>Copy the <em>.frcmod</em> and <em>prep files</em> into this directory.</p>
+<pre><code>cp l01.frcmod l01
+cp l01.prep l01
+</code></pre>
+
+<p>Finally, we create a tarball containing the directory we created:</p>
+<pre><code>tar cfv bet-l01.tar l01
+</code></pre>
+
+<p>The two inputs needed for use in the ufBAC are thus the full system PDB (<em>bet-l01.pdb</em>) and this tarball of the ligand parameterization (<em>bet-l01.tar</em>).</p>
               
             </div>
           </div>

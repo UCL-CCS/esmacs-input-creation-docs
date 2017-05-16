@@ -1,0 +1,8 @@
+source leaprc.gaff
+frcmod = loadamberparams l01.frcmod
+loadamberprep l01.prep
+mol = loadpdb l01.pdb
+saveamberprep mol test.prepc
+saveamberparm mol test.top test.crd
+savepdb mol test.pdb
+quit

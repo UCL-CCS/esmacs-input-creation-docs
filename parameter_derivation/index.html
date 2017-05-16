@@ -67,7 +67,7 @@
     <a class="current" href="./">Parameter Derivation</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#resp-fitting-antechamber">RESP fitting (Antechamber)</a></li>
+    <li class="toctree-l2"><a href="#resp-fitting">RESP fitting</a></li>
     
 
     <li class="toctree-l2"><a href="#create-prep-and-frcmod-files">Create prep and frcmod files</a></li>
@@ -124,7 +124,8 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="resp-fitting-antechamber">RESP fitting (Antechamber)</h2>
+                <p>Now that the electrostatic potential is known we need to use this to produce a ligand description for incorporation into the Amber force field.</p>
+<h2 id="resp-fitting">RESP fitting</h2>
 <p>Once the electrostatic potential has been successfully generated a two step process is used to convert this into RESP fitted charges.
 In these commands the new options are; <code>-c</code> charge method and <code>cf</code> for charge filename. The '.ac' file is an intermediate file and most options are selct explanatory, except <code>-c wc</code> which simply means 'write out charge'.</p>
 <pre><code>antechamber -fi gout -fo ac -i 4bjx-ligand.out -o resp.ac -c resp
@@ -154,9 +155,23 @@ An easy way of achieving this is to run the command:</p>
 <pre><code>sed 's/73B/L01/' 4bjx-ligand-h.pdb &gt; l01.pdb
 </code></pre>
 
+<p>Remove any header lines from the resultant PDB (<code>reduce</code> adds one beginning 'USER  MOD').</p>
 <p>For use in BAC the ligand PDB (<em>l01.pdb</em> in the example) should be checked to ensure that it does not contain entries in the element column.
 In particular entries for chlorine can be a problem.</p>
 <h2 id="check-all-is-well">Check all is well</h2>
+<p><em>test.leapin</em></p>
+<pre><code>source leaprc.gaff
+frcmod = loadamberparams l01.frcmod
+loadamberprep l01.prep
+mol = loadpdb l01.pdb
+saveamberprep mol test.prepc
+saveamberparm mol test.top test.crd
+savepdb mol test.pdb
+quit
+</code></pre>
+
+<p>A common reason for failure is that some atom names change capitalization in the Antechamber process (in particular 'CL' becoming 'Cl' and 'BR' turning into 'Br').
+It is easiest to change the case in the PDB as the entries only appear once (as opposed to the <em>.prep</em> file where they appear in atom and connectivity lines).</p>
               
             </div>
           </div>
