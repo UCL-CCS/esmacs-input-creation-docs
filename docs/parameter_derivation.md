@@ -1,5 +1,5 @@
 
-## RESP fitting (Antechamber)
+## RESP fitting
 
 Once the electrostatic potential has been successfully generated a two step process is used to convert this into RESP fitted charges.
 In these commands the new options are; `-c` charge method and `cf` for charge filename. The '.ac' file is an intermediate file and most options are selct explanatory, except `-c wc` which simply means 'write out charge'.

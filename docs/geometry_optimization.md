@@ -33,18 +33,18 @@ antechamber -fi pdb -fo gcrt -i 4bjx-ligand-h.pdb -o 4bjx-ligand.gau -nc 1
 
 The first few lines of the Gaussian input file generated will look something like this:
 
->--Link1--
->%chk=molecule
->\#HF/6-31G* SCF=tight Test Pop=MK iop(6/33=2) iop(6/42=6) opt
->
->remark line goes here
->
->0   1
->    C   15.0320000000        6.0240000000       10.0040000000     
->    C   14.0090000000        5.1520000000        9.2570000000     
->    C   14.6530000000        4.2700000000        8.1860000000
->
-> ...
+```
+--Link1--
+%chk=molecule
+#HF/6-31G* SCF=tight Test Pop=MK iop(6/33=2) iop(6/42=6) opt
+
+remark line goes here
+
+0   1
+    C   15.0320000000        6.0240000000       10.0040000000     
+    C   14.0090000000        5.1520000000        9.2570000000     
+    C   14.6530000000        4.2700000000        8.1860000000
+```
 
 The meaning of the Gaussian options, found in the third line, are as follows:
 
