@@ -35,7 +35,7 @@ The first few lines of the Gaussian input file generated will look something lik
 
 >--Link1--
 >%chk=molecule
->#HF/6-31G* SCF=tight Test Pop=MK iop(6/33=2) iop(6/42=6) opt
+>\#HF/6-31G* SCF=tight Test Pop=MK iop(6/33=2) iop(6/42=6) opt
 >
 >remark line goes here
 >
