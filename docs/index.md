@@ -22,6 +22,7 @@ Furthermore, the following restrictions apply to these inputs:
 *  protein sequence must be complete with no gaps between residues
 
 It is assumed throughout that the reader is familiar with the PDB format used to store atomic coordinates.
+We further suppose that you either have the AmberTools available in your run path or know how to adapt the path used to execute the commands.
 
 ## Outcomes
 
