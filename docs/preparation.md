@@ -14,7 +14,7 @@ In this section we will prepare the protein and solvent elements of the PDB for 
 
 Models for preparation in BAC can come from many sources but a common scenario is that the starting point is a PDB containing coordinates for all components of the system.
 In this section we detail the steps necessary to create a BAC input PDB from such a model.
-The PDB [4BJX](examples/4bjx.pdb) is used as an example to illustrate the general process (it can be downloaded from the link for using following along).
+The PDB [4BJX](examples/4bjx.pdb) is used as an example to illustrate the general process (it can be downloaded from the link for use when following along).
 
 In this example we assume that you begin with a PDB containing all elements of the system.
 Where multiple ligands are to be added to the same protein receptor then once the protein structure has been prepares once you can skip to the [ligand preparation](#prepare-ligand) section to create input for parameterization.
