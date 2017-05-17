@@ -136,8 +136,8 @@ To use this tool on the example 4BJX ligand extracted in the last section use th
 <p>A wide variety of other ways to add these atoms are possible, one popular option in <a href="http://openbabel.org/">OpenBabel</a>.</p>
 <h2 id="initial-steps-using-antechamber">Initial steps using Antechamber</h2>
 <p>Antechamber is designed to allow the rapid generation of topology files for ligands using the generalized Amber force field (GAFF).
-Two charge methods can be used HF/6-31G<em> RESP or AM1-BCC.
-The work conducted to date with BAC has focussed on the HF/6-31G</em> RESP method used to parameterize much of the main Amber forcefield.
+Two charge methods can be used HF/6-31G RESP* or AM1-BCC.
+The work conducted to date with BAC has focussed on the HF/6-31G* RESP method used to parameterize much of the main Amber forcefield.
 It is this approach that we will be detailing in the next two sections, although we will briefly mention the command used to complete the AM1-BCC approach as this eliminated the need for time consuming Gaussian calculations.</p>
 <p>The first step to using Antechamber in this context is to generate the input file for Gaussian to optimize the ligand and generate a quantum-chemically calculated electrostatic potential.</p>
 <p>For neutral ligands it is sufficient to specify only the input PDB (<code>-fi</code> specifies the format and <code>-i</code> the filename) and the output file (<code>-fo</code> specifies the format and <code>-o</code> the filename):</p>
