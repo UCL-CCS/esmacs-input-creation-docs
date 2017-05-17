@@ -117,17 +117,17 @@
         },
         {
             "location": "/testing/",
-            "text": "Check PDB for obvious errors\n\n\nChecklist",
+            "text": "Incorrectly formatted PDB or prep files should be caught by ufBAC but it is worth checking the system is correctly set up before uploading your inputs.\nIn this section we use a script to check the basic input we have generated and provide a checklist of the major points that you should check in your PDB and ligand parameters files.\n\n\nCheck PDB and \n.prep\n file for errors\n\n\nDownload the short Python 2 script \npdb-prep-check.py\n.\nThis script is designed to ensure that the PDB and prep file are compatible with BAC and that the ligand structure is named in accordance with the topology.\n\n\nTo run the script use the command:\n\n\npython pdb-prep-check.py -pdb_file bet-l01.pdb -prep_file l01.prep\n\n\n\n\nThe output will provide information on lines where issues may arise and hints on how to correct them.\n\n\nChecklist\n\n\n\n\nEnsure PDB follows the BAC format:\n\n\nHeader line describing number of protein chains\n\n\nChains ordered; protein, ligand, solvent\n\n\nAll chains end with TER cards\n\n\nEnsure that the PDB header line matches the number of protein chains\n\n\nMake sure the only END line is the last line of the file\n\n\nDo not use the element column for ligand atoms",
             "title": "Testing"
         },
         {
-            "location": "/testing/#check-pdb-for-obvious-errors",
-            "text": "",
-            "title": "Check PDB for obvious errors"
+            "location": "/testing/#check-pdb-and-prep-file-for-errors",
+            "text": "Download the short Python 2 script  pdb-prep-check.py .\nThis script is designed to ensure that the PDB and prep file are compatible with BAC and that the ligand structure is named in accordance with the topology.  To run the script use the command:  python pdb-prep-check.py -pdb_file bet-l01.pdb -prep_file l01.prep  The output will provide information on lines where issues may arise and hints on how to correct them.",
+            "title": "Check PDB and .prep file for errors"
         },
         {
             "location": "/testing/#checklist",
-            "text": "",
+            "text": "Ensure PDB follows the BAC format:  Header line describing number of protein chains  Chains ordered; protein, ligand, solvent  All chains end with TER cards  Ensure that the PDB header line matches the number of protein chains  Make sure the only END line is the last line of the file  Do not use the element column for ligand atoms",
             "title": "Checklist"
         }
     ]

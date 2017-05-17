@@ -77,10 +77,13 @@
     <a class="current" href="./">Testing</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#check-pdb-for-obvious-errors">Check PDB for obvious errors</a></li>
+    <li class="toctree-l2"><a href="#check-pdb-and-prep-file-for-errors">Check PDB and .prep file for errors</a></li>
     
-
-    <li class="toctree-l2"><a href="#checklist">Checklist</a></li>
+        <ul>
+        
+            <li><a class="toctree-l3" href="#checklist">Checklist</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -121,8 +124,26 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="check-pdb-for-obvious-errors">Check PDB for obvious errors</h2>
-<h2 id="checklist">Checklist</h2>
+                <p>Incorrectly formatted PDB or prep files should be caught by ufBAC but it is worth checking the system is correctly set up before uploading your inputs.
+In this section we use a script to check the basic input we have generated and provide a checklist of the major points that you should check in your PDB and ligand parameters files.</p>
+<h2 id="check-pdb-and-prep-file-for-errors">Check PDB and <em>.prep</em> file for errors</h2>
+<p>Download the short Python 2 script <a href="../examples/pdb-prep-check.py">pdb-prep-check.py</a>.
+This script is designed to ensure that the PDB and prep file are compatible with BAC and that the ligand structure is named in accordance with the topology.</p>
+<p>To run the script use the command:</p>
+<pre><code>python pdb-prep-check.py -pdb_file bet-l01.pdb -prep_file l01.prep
+</code></pre>
+
+<p>The output will provide information on lines where issues may arise and hints on how to correct them.</p>
+<h3 id="checklist">Checklist</h3>
+<ul>
+<li>Ensure PDB follows the BAC format:</li>
+<li>Header line describing number of protein chains</li>
+<li>Chains ordered; protein, ligand, solvent</li>
+<li>All chains end with TER cards</li>
+<li>Ensure that the PDB header line matches the number of protein chains</li>
+<li>Make sure the only END line is the last line of the file</li>
+<li>Do not use the element column for ligand atoms</li>
+</ul>
               
             </div>
           </div>
