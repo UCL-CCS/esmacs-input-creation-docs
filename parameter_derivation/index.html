@@ -72,6 +72,12 @@
 
     <li class="toctree-l2"><a href="#create-prep-and-frcmod-files">Create prep and frcmod files</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l3" href="#non-standard-approach-using-am1-bcc">Non-standard approach (using AM1-BCC)</a></li>
+        
+        </ul>
+    
 
     <li class="toctree-l2"><a href="#test-the-parameters">Test the parameters</a></li>
     
@@ -158,6 +164,13 @@ An easy way of achieving this is to run the command:</p>
 <p>Remove any header lines from the resultant PDB (<code>reduce</code> adds one beginning 'USER  MOD').</p>
 <p>For use in BAC the ligand PDB (<em>l01.pdb</em> in the example) should be checked to ensure that it does not contain entries in the element column.
 In particular entries for chlorine can be a problem.</p>
+<h3 id="non-standard-approach-using-am1-bcc">Non-standard approach (using AM1-BCC)</h3>
+<p>This section is something of an aside and is included for completeness only, skip if you are only interested in creating standard BAC parameterizations.
+If you wish to create the topology without Gaussian optimization and using the AM1-BCC approach to charges this can be achieved with a single command:</p>
+<pre><code>antechamber -i 4bjx-ligand-h.pdb -fi pdb -o l01.prep -fo prepi -c bcc -at gaff -j 4 -rn L01
+</code></pre>
+
+<p>Here the ligand is renamed 'L01' as in the Gaussian method.</p>
 <h2 id="test-the-parameters">Test the parameters</h2>
 <p>To test that this process has gone correctly it is often a good idea to build a ligand only system which could be used for simulation.
 To do so we need to use a <code>tLeap</code> script, like the one below:</p>
