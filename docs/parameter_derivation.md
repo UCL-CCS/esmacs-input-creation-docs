@@ -47,9 +47,10 @@ Remove any header lines from the resultant PDB (`reduce` adds one beginning 'USE
 For use in BAC the ligand PDB (*l01.pdb* in the example) should be checked to ensure that it does not contain entries in the element column.
 In particular entries for chlorine can be a problem.
 
-## Check all is well
+## Test the parameters
 
-*test.leapin*
+To test that this process has gone correctly it is often a good idea to build a ligand only system which could be used for simulation.
+To do so we need to use a `tLeap` script, like the one below:
 
 ```
 source leaprc.gaff
@@ -60,6 +61,15 @@ saveamberprep mol test.prepc
 saveamberparm mol test.top test.crd
 savepdb mol test.pdb
 quit
+```
+
+This script loads the GAFF force field and the files we have created to describe our ligand.
+It then used these to create simulation ready topology and coordinate files.
+A copy of this script can be downloaded here: [*test.leapin*](examples/test.leapin).
+Run this to produce a ligand model using `tleap`:
+
+```
+tleap -f test.leapin
 ```
 
 A common reason for failure is that some atom names change capitalization in the Antechamber process (in particular 'CL' becoming 'Cl' and 'BR' turning into 'Br').
