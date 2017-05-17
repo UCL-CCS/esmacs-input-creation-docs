@@ -56,19 +56,6 @@ This will used in the latter RESP step to create the partial charges used in the
 
 The values on line 7 are the net charge and the multiplicity.
 
-### Non-standard approach (using AM1-BCC)
-
-This section is something of an aside and is included for completeness only, skip if you are only interested in creating standard BAC parameterizations.
-If you wish to create the topology without Gaussian optimization and using the AM1-BCC approach to charges this can be achieved with a single command:
-
-```
-antechamber -i 4bjx-ligand-h.pdb -fi pdb -o l01.prep -fo prepi -c bcc -at gaff -j 4 -rn L01
-```
-
-Here the ligand is renamed 'L01'.
-
-If you use this approach you can skip the section below on Gaussian and the next Antechamber step and move straight to the [BAC input generation]() section.
-
 ## Geometry optimization (Gaussian)
 
 To run the geometry optimization in Gaussian and obtain the electrostatic potential it is a simple Gaussian run.

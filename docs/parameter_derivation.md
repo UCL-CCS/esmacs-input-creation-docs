@@ -47,6 +47,17 @@ Remove any header lines from the resultant PDB (`reduce` adds one beginning 'USE
 For use in BAC the ligand PDB (*l01.pdb* in the example) should be checked to ensure that it does not contain entries in the element column.
 In particular entries for chlorine can be a problem.
 
+### Non-standard approach (using AM1-BCC)
+
+This section is something of an aside and is included for completeness only, skip if you are only interested in creating standard BAC parameterizations.
+If you wish to create the topology without Gaussian optimization and using the AM1-BCC approach to charges this can be achieved with a single command:
+
+```
+antechamber -i 4bjx-ligand-h.pdb -fi pdb -o l01.prep -fo prepi -c bcc -at gaff -j 4 -rn L01
+```
+
+Here the ligand is renamed 'L01' as in the Gaussian method.
+
 ## Test the parameters
 
 To test that this process has gone correctly it is often a good idea to build a ligand only system which could be used for simulation.
