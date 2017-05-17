@@ -12,8 +12,8 @@ A wide variety of other ways to add these atoms are possible, one popular option
 ## Initial steps using Antechamber
 
 Antechamber is designed to allow the rapid generation of topology files for ligands using the generalized Amber force field (GAFF).
-Two charge methods can be used HF/6-31G* RESP or AM1-BCC.
-The work conducted to date with BAC has focussed on the HF/6-31G* RESP method used to parameterize much of the main Amber forcefield.
+Two charge methods can be used HF/6-31G RESP\* or AM1-BCC.
+The work conducted to date with BAC has focussed on the HF/6-31G\* RESP method used to parameterize much of the main Amber forcefield.
 It is this approach that we will be detailing in the next two sections, although we will briefly mention the command used to complete the AM1-BCC approach as this eliminated the need for time consuming Gaussian calculations.
 
 The first step to using Antechamber in this context is to generate the input file for Gaussian to optimize the ligand and generate a quantum-chemically calculated electrostatic potential.

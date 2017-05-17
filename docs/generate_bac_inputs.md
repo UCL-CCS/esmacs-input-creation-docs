@@ -38,3 +38,5 @@ tar cfv bet-l01.tar l01
 ```
 
 The two inputs needed for use in the ufBAC are thus the full system PDB (*bet-l01.pdb*) and this tarball of the ligand parameterization (*bet-l01.tar*).
+
+In the next section we detail the use of scripts to check that the inputs created are ready for successful use in BAC.
