@@ -7,7 +7,7 @@ To use this tool on the example 4BJX ligand extracted in the last section use th
 reduce 4bjx-ligand.pdb > 4bjx-ligand-h.pdb
 ```
 
-A wide variety of other ways to add these atoms are possible, one popular option in [OpenBabel](http://openbabel.org/).
+A wide variety of other ways to add these atoms are possible, one popular option is [OpenBabel](http://openbabel.org/).
 
 ## Initial steps using Antechamber
 
