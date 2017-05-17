@@ -233,7 +233,7 @@ if not pdb_atoms:
 
 if difference:
     extra = ', '.join(difference)
-    pdb_err.append('Following ligand atoms appear in PDB but not prep file' + extra)
+    pdb_err.append('Following ligand atoms appear in PDB but not prep file ' + extra)
 
 if not (pdb_err or prep_err):
     print "No errors"
