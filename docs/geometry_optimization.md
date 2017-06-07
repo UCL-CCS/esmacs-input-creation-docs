@@ -1,12 +1,13 @@
 
 The next stage will require that any hydrogens which are part of the ligand are added (these are usually not resolved in crystal structures).
-AmberTools provides a tool for estimating the protonation of ligands called reduce.
+AmberTools provides a tool for estimating the protonation of ligands called `reduce`.
 To use this tool on the example 4BJX ligand extracted in the last section use the command:
 
 ```
 reduce 4bjx-ligand.pdb > 4bjx-ligand-h.pdb
 ```
 
+Example output from `reduce` is available [here](examples/4bjx-ligand-h.pdb).
 A wide variety of other ways to add these atoms are possible, one popular option is [OpenBabel](http://openbabel.org/).
 
 ## Initial steps using Antechamber
