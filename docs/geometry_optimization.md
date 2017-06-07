@@ -47,6 +47,7 @@ remark line goes here
     C   14.6530000000        4.2700000000        8.1860000000
 ```
 
+A complete version of this file is available [here](examples/4bjx-ligand.gau).
 The meaning of the Gaussian options, found in the third line, are as follows:
 
 * Opt: We ask for optimization of our structure
