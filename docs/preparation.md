@@ -84,7 +84,7 @@ The solvent can be extracted from 4BJX using:
 grep " HOH | MG | ZN | CL | NA " 4bjx.pdb > 4bjx-solvent.pdb
 ```
 
-An example of the protein only file can be downloaded from [here](examples/4bjx-solvent.pdb).
+An example of the solvent only file can be downloaded from [here](examples/4bjx-solvent.pdb).
 Note: This `grep` command can be dangerous if the ligand contains 'CL' atoms and entries in the element column.
 
 ## Prepare ligand for processing
@@ -97,5 +97,5 @@ The ligand can be extracted from 4BJX using:
 grep "73B" 4bjx.pdb | grep HETATM > 4bjx-ligand.pdb
 ```
 
-An example of the protein only file can be downloaded from [here](examples/4bjx-ligand.pdb).
+An example of the ligand only file can be downloaded from [here](examples/4bjx-ligand.pdb).
 In the next section we will see how to create a parameterization for the ligand.
