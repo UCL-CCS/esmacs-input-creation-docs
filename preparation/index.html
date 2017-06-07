@@ -164,11 +164,13 @@ In the case of the 4BJX the protein residues are the only ones provided as <code
 <pre><code>grep ^ATOM 4bjx.pdb &gt; 4bjx-protein.pdb
 </code></pre>
 
-<p>To remove alternative conformers for residues and get a report on any non-standard residues use <code>pdb4amber</code>, part of the AmberTools package:</p>
+<p>An example of the protein only file can be downloaded from <a href="../examples/4bjx-protein.pdb">here</a>.
+To remove alternative conformers for residues and get a report on any non-standard residues use <code>pdb4amber</code>, part of the AmberTools package:</p>
 <pre><code>pdb4amber -i 4bjx-protein.pdb -o 4bjx-protein-stripped.pdb --nohyd
 </code></pre>
 
-<p>This will save the updated coordinates in <code>4bjx-protein-stripped.pdb</code> and provide a short report to the console about the residues edited. The <code>--nohyd</code> flag removes hydrogens, you can leave this off if you are confident that the atoms present are correctly names for use in Amber.</p>
+<p>This will save the updated coordinates in <code>4bjx-protein-stripped.pdb</code> and provide a short report to the console about the residues edited. The <code>--nohyd</code> flag removes hydrogens, you can leave this off if you are confident that the atoms present are correctly names for use in Amber.
+An example of the stripped protein file can be downloaded from <a href="../examples/4bjx-protein-stripped.pdb">here</a>.</p>
 <p>THE <code>END</code> line at the end of the file should be replaced with <code>TER</code> (using either a text editor or <code>sed</code>).
 For proteins containing multiple chains <code>TER</code> lines should be inserted between each pair .</p>
 <h3 id="non-standard-residues">Non-standard residues</h3>
@@ -217,7 +219,8 @@ BAC Builder can only parse a small number of solvent atoms</p>
 <pre><code>grep &quot; HOH | MG | ZN | CL | NA &quot; 4bjx.pdb &gt; 4bjx-solvent.pdb
 </code></pre>
 
-<p>Note: This <code>grep</code> command can be dangerous if the ligand contains 'CL' atoms and entries in the element column.</p>
+<p>An example of the solvent only file can be downloaded from <a href="../examples/4bjx-solvent.pdb">here</a>.
+Note: This <code>grep</code> command can be dangerous if the ligand contains 'CL' atoms and entries in the element column.</p>
 <h2 id="prepare-ligand-for-processing">Prepare ligand for processing</h2>
 <p>In order to parameterize the ligand we need to have a separate PDB containing only ligand atoms.
 Create this PDB using the same tools as for the protein and solvent atoms.</p>
@@ -225,7 +228,8 @@ Create this PDB using the same tools as for the protein and solvent atoms.</p>
 <pre><code>grep &quot;73B&quot; 4bjx.pdb | grep HETATM &gt; 4bjx-ligand.pdb
 </code></pre>
 
-<p>In the next section we will see how to create a parameterization for the ligand.</p>
+<p>An example of the ligand only file can be downloaded from <a href="../examples/4bjx-ligand.pdb">here</a>.
+In the next section we will see how to create a parameterization for the ligand.</p>
               
             </div>
           </div>

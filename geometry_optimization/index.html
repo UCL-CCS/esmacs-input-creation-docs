@@ -122,12 +122,13 @@
             <div class="section">
               
                 <p>The next stage will require that any hydrogens which are part of the ligand are added (these are usually not resolved in crystal structures).
-AmberTools provides a tool for estimating the protonation of ligands called reduce.
+AmberTools provides a tool for estimating the protonation of ligands called <code>reduce</code>.
 To use this tool on the example 4BJX ligand extracted in the last section use the command:</p>
 <pre><code>reduce 4bjx-ligand.pdb &gt; 4bjx-ligand-h.pdb
 </code></pre>
 
-<p>A wide variety of other ways to add these atoms are possible, one popular option is <a href="http://openbabel.org/">OpenBabel</a>.</p>
+<p>Example output from <code>reduce</code> is available <a href="../examples/4bjx-ligand-h.pdb">here</a>.
+A wide variety of other ways to add these atoms are possible, one popular option is <a href="http://openbabel.org/">OpenBabel</a>.</p>
 <h2 id="initial-steps-using-antechamber">Initial steps using Antechamber</h2>
 <p>Antechamber is designed to allow the rapid generation of topology files for ligands using the generalized Amber force field (GAFF).
 Two charge methods can be used HF/6-31G RESP* or AM1-BCC.
@@ -156,7 +157,8 @@ remark line goes here
     C   14.6530000000        4.2700000000        8.1860000000
 </code></pre>
 
-<p>The meaning of the Gaussian options, found in the third line, are as follows:</p>
+<p>A complete version of this file is available <a href="../examples/4bjx-ligand.gau">here</a>.
+The meaning of the Gaussian options, found in the third line, are as follows:</p>
 <ul>
 <li>Opt: We ask for optimization of our structure</li>
 <li>HF/6-31G*: We are using the 6-31G* basis set</li>
