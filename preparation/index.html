@@ -150,7 +150,7 @@ In this section we will prepare the protein and solvent elements of the PDB for 
 In this section we detail the steps necessary to create a BAC input PDB from such a model.
 The PDB <a href="../examples/4bjx.pdb">4BJX</a> is used as an example to illustrate the general process (it can be downloaded from the link for use when following along).</p>
 <p>In this example we assume that you begin with a PDB containing all elements of the system.
-Where multiple ligands are to be added to the same protein receptor then once the protein structure has been prepares once you can skip to the <a href="#prepare-ligand">ligand preparation</a> section to create input for parameterization.</p>
+Where multiple ligands are to be added to the same protein receptor then once the protein structure has been prepared once you can skip to the <a href="#prepare-ligand">ligand preparation</a> section to create input for parameterization.</p>
 <h2 id="protein-model">Protein model</h2>
 <p>The example structure contains a protein, ligand and solvent molecules (see picture below).
 The first step is to separate the protein chains and ensure they are ready for incorporation in the final model.</p>
@@ -169,7 +169,7 @@ To remove alternative conformers for residues and get a report on any non-standa
 <pre><code>pdb4amber -i 4bjx-protein.pdb -o 4bjx-protein-stripped.pdb --nohyd
 </code></pre>
 
-<p>This will save the updated coordinates in <code>4bjx-protein-stripped.pdb</code> and provide a short report to the console about the residues edited. The <code>--nohyd</code> flag removes hydrogens, you can leave this off if you are confident that the atoms present are correctly names for use in Amber.
+<p>This will save the updated coordinates in <code>4bjx-protein-stripped.pdb</code> and provide a short report to the console about the residues edited. The <code>--nohyd</code> flag removes hydrogens, you can leave this off if you are confident that the atoms present are correctly named for use in Amber.
 An example of the stripped protein file can be downloaded from <a href="../examples/4bjx-protein-stripped.pdb">here</a>.</p>
 <p>THE <code>END</code> line at the end of the file should be replaced with <code>TER</code> (using either a text editor or <code>sed</code>).
 For proteins containing multiple chains <code>TER</code> lines should be inserted between each pair .</p>

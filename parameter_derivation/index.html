@@ -133,14 +133,14 @@
                 <p>Now that the electrostatic potential is known we need to use this to produce a ligand description for incorporation into the Amber force field.</p>
 <h2 id="resp-fitting">RESP fitting</h2>
 <p>Once the electrostatic potential has been successfully generated a two step process is used to convert this into RESP fitted charges.
-In these commands the new options are; <code>-c</code> charge method and <code>cf</code> for charge filename. The '.ac' file is an intermediate file and most options are selct explanatory, except <code>-c wc</code> which simply means 'write out charge'.</p>
+In these commands the new options are; <code>-c</code> charge method and <code>cf</code> for charge filename. The '.ac' file is an intermediate file and most options are select explanatory, except <code>-c wc</code> which simply means 'write out charge'.</p>
 <pre><code>antechamber -fi gout -fo ac -i 4bjx-ligand.out -o resp.ac -c resp
 antechamber -fi ac -i resp.ac -c wc -cf resp.crg
 </code></pre>
 
 <h2 id="create-prep-and-frcmod-files">Create prep and frcmod files</h2>
-<p>The goal of the parameterization is to create two files used by Amber to read a a paremeterized drug.
-The first is a <em>.prep</em> file which adds a new residues to the standard Amber residue database.
+<p>The goal of the parameterization is to create two files used by Amber to read a parameterized drug.
+The first is a <em>.prep</em> file which adds a new residue to the standard Amber residue database.
 The other is a force field parameter modification, or <em>.frcmod</em>, file which lists parameters for bonds and other components of the forcefield that need to be added to characterize the ligand.</p>
 <p>At this stage you need to consider a name for the ligand to be used in the simulation.
 The residue name must be 3 characters long, in this example we use 'L01'.
@@ -148,7 +148,7 @@ BAC requires that this name in lowercase letters <strong>must</strong> be used c
 <pre><code>antechamber -i resp.ac -fi ac -c rc -cf resp.crg -o l01.prep -fo prepi -ao name -a 4bjx-ligand-h.pdb -fa pdb -rn L01
 </code></pre>
 
-<p>In this command, <code>-a</code> sets and additional file to be read for naming, <code>-ao name</code> means that only atom names are read from the input (rather than also including atom and bond types) and <code>-rn L01</code> sets the residue name.</p>
+<p>In this command, <code>-a</code> sets an additional file to be read for naming, <code>-ao name</code> means that only atom names are read from the input (rather than also including atom and bond types) and <code>-rn L01</code> sets the residue name.</p>
 <p>Now we have the <em>.prep</em> file we need to use Antechamber to try and fill in any missing parameters in the force field by analogy to similar parameters which are present.
 If Antechamber can't empirically calculate a value or has no analogy it will either add a default value that it thinks is reasonable or , in rare cases, insert a place holder.
 This will contain zeros in all columns and be accompanied by the comment "ATTN: needs revision" in the output.

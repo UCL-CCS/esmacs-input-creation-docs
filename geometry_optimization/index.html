@@ -139,7 +139,7 @@ It is this approach that we will be detailing in the next two sections, although
 <pre><code>antechamber -fi pdb -fo gcrt -i 4bjx-ligand-h.pdb -o 4bjx-ligand.gau
 </code></pre>
 
-<p>If the ligand is charged and extra option for the net charge, <code>-nc</code>, must be used.
+<p>If the ligand is charged an extra option for the net charge, <code>-nc</code>, must be used.
 For example if we thought the ligand had a charge of +1 we would use:</p>
 <pre><code>antechamber -fi pdb -fo gcrt -i 4bjx-ligand-h.pdb -o 4bjx-ligand.gau -nc 1
 </code></pre>
@@ -157,13 +157,13 @@ remark line goes here
     C   14.6530000000        4.2700000000        8.1860000000
 </code></pre>
 
-<p>A complete version of this file is available <a href="../examples/4bjx-ligand.gau">here</a>. 
+<p>A complete version of this file is available <a href="../examples/4bjx-ligand.gau">here</a>.
 The meaning of the Gaussian options, found in the third line, are as follows:</p>
 <ul>
 <li>Opt: We ask for optimization of our structure</li>
 <li>HF/6-31G*: We are using the 6-31G* basis set</li>
 <li>Pop=MK: The output will contain Merz-Kollman atomic charges (fitted to the electrostatic potential)</li>
-<li>iop(6/33=2): Output grid of values of describing the electrostatic potentail.
+<li>iop(6/33=2): Output grid of values describing the electrostatic potential.
 This will used in the latter RESP step to create the partial charges used in the final parameterization.</li>
 </ul>
 <p>The values on line 7 are the net charge and the multiplicity.</p>
