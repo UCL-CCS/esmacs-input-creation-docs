@@ -25,7 +25,7 @@ For neutral ligands it is sufficient to specify only the input PDB (`-fi` specif
 antechamber -fi pdb -fo gcrt -i 4bjx-ligand-h.pdb -o 4bjx-ligand.gau
 ```
 
-If the ligand is charged and extra option for the net charge, `-nc`, must be used.
+If the ligand is charged an extra option for the net charge, `-nc`, must be used.
 For example if we thought the ligand had a charge of +1 we would use:
 
 ```
@@ -53,7 +53,7 @@ The meaning of the Gaussian options, found in the third line, are as follows:
 * Opt: We ask for optimization of our structure
 * HF/6-31G\*: We are using the 6-31G\* basis set
 * Pop=MK: The output will contain Merz-Kollman atomic charges (fitted to the electrostatic potential)
-* iop(6/33=2): Output grid of values of describing the electrostatic potentail.
+* iop(6/33=2): Output grid of values describing the electrostatic potential.
 This will used in the latter RESP step to create the partial charges used in the final parameterization.
 
 The values on line 7 are the net charge and the multiplicity.

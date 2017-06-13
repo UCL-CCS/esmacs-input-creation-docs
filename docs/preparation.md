@@ -17,7 +17,7 @@ In this section we detail the steps necessary to create a BAC input PDB from suc
 The PDB [4BJX](examples/4bjx.pdb) is used as an example to illustrate the general process (it can be downloaded from the link for use when following along).
 
 In this example we assume that you begin with a PDB containing all elements of the system.
-Where multiple ligands are to be added to the same protein receptor then once the protein structure has been prepares once you can skip to the [ligand preparation](#prepare-ligand) section to create input for parameterization.
+Where multiple ligands are to be added to the same protein receptor then once the protein structure has been prepared once you can skip to the [ligand preparation](#prepare-ligand) section to create input for parameterization.
 
 ## Protein model
 
@@ -45,7 +45,7 @@ To remove alternative conformers for residues and get a report on any non-standa
 pdb4amber -i 4bjx-protein.pdb -o 4bjx-protein-stripped.pdb --nohyd
 ```
 
-This will save the updated coordinates in `4bjx-protein-stripped.pdb` and provide a short report to the console about the residues edited. The `--nohyd` flag removes hydrogens, you can leave this off if you are confident that the atoms present are correctly names for use in Amber.
+This will save the updated coordinates in `4bjx-protein-stripped.pdb` and provide a short report to the console about the residues edited. The `--nohyd` flag removes hydrogens, you can leave this off if you are confident that the atoms present are correctly named for use in Amber.
 An example of the stripped protein file can be downloaded from [here](examples/4bjx-protein-stripped.pdb).
 
 THE `END` line at the end of the file should be replaced with `TER` (using either a text editor or `sed`).

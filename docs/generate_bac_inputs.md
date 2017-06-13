@@ -3,7 +3,7 @@
 
 As noted earlier BAC expects the PDB to have a set structure - protein, lgand and then solvent.
 It also expects `TER` cards between chains.
-During this tutorial we have prepared files for each of these sections, edited to meet teh requirements of Amber and BAC:
+During this tutorial we have prepared files for each of these sections, edited to meet the requirements of Amber and BAC:
 
 * Protein: 4bjx-protein-stripped.pdb
 * Ligand: l01.pdb
@@ -37,7 +37,7 @@ The protein used here contains only one chain, so edit *bet-l01.pdb* file accord
 
 For upload into BAC a particular arrangement of files is needed.
 
-Create a directory, names using the lowercase version of the ligand residue name:
+Create a directory, named using the lowercase version of the ligand residue name:
 
 ```
 mkdir l01
