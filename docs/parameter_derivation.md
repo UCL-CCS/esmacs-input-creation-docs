@@ -87,4 +87,5 @@ tleap -f test.leapin
 
 A common reason for failure is that some atom names change capitalization in the Antechamber process (in particular 'CL' becoming 'Cl' and 'BR' turning into 'Br').
 It is easiest to change the case in the PDB as the entries only appear once (as opposed to the *.prep* file where they appear in atom and connectivity lines).
+If one is not present you should add a line containing only the text `TER` to the end of the ligand PDB. 
 A corrected PDB for our ligand can be downloaded [here](examples/l01.pdb).
