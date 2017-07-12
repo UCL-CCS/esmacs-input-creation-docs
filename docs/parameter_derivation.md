@@ -10,6 +10,8 @@ antechamber -fi gout -fo ac -i 4bjx-ligand.out -o resp.ac -c resp
 antechamber -fi ac -i resp.ac -c wc -cf resp.crg
 ```
 
+These commands will produce the files [resp.ac](examples/resp.ac) and [resp.crg](examples/resp.crg), as well as may temporary intermediate files (most with names beginning with ANTECHAMBER).
+
 ## Create prep and frcmod files
 
 The goal of the parameterization is to create two files used by Amber to read a parameterized drug.
@@ -27,7 +29,7 @@ antechamber -i resp.ac -fi ac -c rc -cf resp.crg -o l01.prep -fo prepi -ao name 
 In this command, `-a` sets an additional file to be read for naming, `-ao name` means that only atom names are read from the input (rather than also including atom and bond types) and `-rn L01` sets the residue name.
 
 Now we have the *.prep* file we need to use Antechamber to try and fill in any missing parameters in the force field by analogy to similar parameters which are present.
-If Antechamber can't empirically calculate a value or has no analogy it will either add a default value that it thinks is reasonable or , in rare cases, insert a place holder.
+If Antechamber cannot empirically calculate a value, or has no analogy, it will either add a default value that it thinks is reasonable or , in rare cases, insert a place holder.
 This will contain zeros in all columns and be accompanied by the comment "ATTN: needs revision" in the output.
 In these circumstances you will have to manually add these parameters.
 
@@ -44,7 +46,7 @@ sed 's/73B/L01/' 4bjx-ligand-h.pdb > l01.pdb
 
 Remove any header lines from the resultant PDB (`reduce` adds one beginning 'USER  MOD').
 
-For use in BAC the ligand PDB (*l01.pdb* in the example) should be checked to ensure that it does not contain entries in the element column.
+For use in BAC the ligand PDB ( *l01.pdb* in the example) should be checked to ensure that it does not contain entries in the element column.
 In particular entries for chlorine can be a problem.
 
 ### Non-standard approach (using AM1-BCC)
@@ -85,3 +87,4 @@ tleap -f test.leapin
 
 A common reason for failure is that some atom names change capitalization in the Antechamber process (in particular 'CL' becoming 'Cl' and 'BR' turning into 'Br').
 It is easiest to change the case in the PDB as the entries only appear once (as opposed to the *.prep* file where they appear in atom and connectivity lines).
+A corrected PDB for our ligand can be downloaded [here](examples/l01.pdb).
