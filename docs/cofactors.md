@@ -1,6 +1,8 @@
 In many systems there are extra non-standard residues that bind along side a ligand.
 There are (limited) capabilities for handling these within BAC.
 
+## Cofactors
+
 The first step is to parameterize the cofactor just as described previously for the ligand. 
 This should provide you with a *prep*, *frcmod* and matching *PDB* file.
 The *prep* file then needs to be converted into an Amber *lib* file.
