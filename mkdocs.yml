@@ -11,6 +11,7 @@ pages:
     - Parameter Derivation: parameter_derivation.md
     - Generate BAC inputs: generate_bac_inputs.md
     - Testing: testing.md
+    - More complex systems: cofactors.md
 
 theme: readthedocs
 
