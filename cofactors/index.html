@@ -8,7 +8,7 @@
   
   <meta name="author" content="David W. Wright">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Testing - BAC ESMACS Input Creation</title>
+  <title>More complex systems - BAC ESMACS Input Creation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Testing";
-    var mkdocs_page_input_path = "testing.md";
-    var mkdocs_page_url = "/testing/";
+    var mkdocs_page_name = "More complex systems";
+    var mkdocs_page_input_path = "cofactors.md";
+    var mkdocs_page_url = "/cofactors/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -72,26 +72,17 @@
     <a class="" href="../generate_bac_inputs/">Generate BAC inputs</a>
 	    </li>
           
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Testing</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#check-pdb-and-prep-file-for-errors">Check PDB and .prep file for errors</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#checklist">Checklist</a></li>
-        
-        </ul>
-    
-
-    </ul>
-	    </li>
-          
             <li class="toctree-l1">
 		
-    <a class="" href="../cofactors/">More complex systems</a>
+    <a class="" href="../testing/">Testing</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">More complex systems</a>
+    <ul class="subnav">
+            
+    </ul>
 	    </li>
           
         </ul>
@@ -116,10 +107,10 @@
     
       
     
-    <li>Testing</li>
+    <li>More complex systems</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/UCL-CCS/esmacs-input-creation-docs/blob/master/docs/testing.md"
+        <a href="https://github.com/UCL-CCS/esmacs-input-creation-docs/blob/master/docs/cofactors.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -129,26 +120,26 @@
           <div role="main">
             <div class="section">
               
-                <p>Incorrectly formatted PDB or prep files should be caught by ufBAC but it is worth checking the system is correctly set up before uploading your inputs.
-In this section we use a script to check the basic input we have generated and provide a checklist of the major points that you should check in your PDB and ligand parameters files.</p>
-<h2 id="check-pdb-and-prep-file-for-errors">Check PDB and <em>.prep</em> file for errors</h2>
-<p>Download the short Python 2 script <a href="../examples/pdb-prep-check.py">pdb-prep-check.py</a>.
-This script is designed to ensure that the PDB and prep file are compatible with BAC and that the ligand structure is named in accordance with the topology.</p>
-<p>To run the script use the command:</p>
-<pre><code>python pdb-prep-check.py -pdb_file bet-l01.pdb -prep_file l01.prep
+                <p>In many systems there are extra non-standard residues that bind along side a ligand.
+There are (limited) capabilities for handling these within BAC.</p>
+<p>The first step is to parameterize the cofactor just as described previously for the ligand. 
+This should provide you with a <em>prep</em>, <em>frcmod</em> and matching <em>PDB</em> file.
+The <em>prep</em> file then needs to be converted into an Amber <em>lib</em> file.
+This is done using tLeap and a script similar to the following (you need to edit the filenames to match the <em>prep</em>, <em>frcmod</em> and <em>PDB</em> files you generated):</p>
+<pre><code>loadamberprep sam.prep
+SAM = loadpdb sam-h.pdb
+loadamberparams sam.frcmod
+saveoff SAM sam.lib
 </code></pre>
 
-<p>The output will provide information on lines where issues may arise and hints on how to correct them.</p>
-<h3 id="checklist">Checklist</h3>
-<ul>
-<li>Ensure PDB follows the BAC format:</li>
-<li>Header line describing number of protein chains</li>
-<li>Chains ordered; protein, ligand, solvent</li>
-<li>All chains end with TER cards</li>
-<li>Ensure that the PDB header line matches the number of protein chains</li>
-<li>Make sure the only END line is the last line of the file</li>
-<li>Do not use the element column for ligand atoms</li>
-</ul>
+<p>Now make copies of the <em>lib</em> and <em>frcmod</em> files named <em>COFACTOR.lib</em> and <em>COFACTOR.frcmod</em>.</p>
+<p>These should be added to the top level of the tarball containing the ligand parameters.
+So that for the <a href="../examples/cofactor.tar">tarball</a> contents for a cofactor and a ligand called 4ZX would look like:</p>
+<pre><code>COFACTOR.lib
+COFACTOR.frcmod
+4zx/4zx.frcmod
+4zx/4zx.prep
+</code></pre>
               
             </div>
           </div>
@@ -156,10 +147,8 @@ This script is designed to ensure that the PDB and prep file are compatible with
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../cofactors/" class="btn btn-neutral float-right" title="More complex systems">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../generate_bac_inputs/" class="btn btn-neutral" title="Generate BAC inputs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../testing/" class="btn btn-neutral" title="Testing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -189,10 +178,8 @@ This script is designed to ensure that the PDB and prep file are compatible with
           <a href="https://github.com/UCL-CCS/esmacs-input-creation-docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../generate_bac_inputs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../testing/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../cofactors/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

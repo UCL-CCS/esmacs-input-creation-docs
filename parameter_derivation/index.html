@@ -95,6 +95,11 @@
     <a class="" href="../testing/">Testing</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../cofactors/">More complex systems</a>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -138,6 +143,7 @@ In these commands the new options are; <code>-c</code> charge method and <code>c
 antechamber -fi ac -i resp.ac -c wc -cf resp.crg
 </code></pre>
 
+<p>These commands will produce the files <a href="../examples/resp.ac">resp.ac</a> and <a href="../examples/resp.crg">resp.crg</a>, as well as may temporary intermediate files (most with names beginning with ANTECHAMBER).</p>
 <h2 id="create-prep-and-frcmod-files">Create prep and frcmod files</h2>
 <p>The goal of the parameterization is to create two files used by Amber to read a parameterized drug.
 The first is a <em>.prep</em> file which adds a new residue to the standard Amber residue database.
@@ -150,7 +156,7 @@ BAC requires that this name in lowercase letters <strong>must</strong> be used c
 
 <p>In this command, <code>-a</code> sets an additional file to be read for naming, <code>-ao name</code> means that only atom names are read from the input (rather than also including atom and bond types) and <code>-rn L01</code> sets the residue name.</p>
 <p>Now we have the <em>.prep</em> file we need to use Antechamber to try and fill in any missing parameters in the force field by analogy to similar parameters which are present.
-If Antechamber can't empirically calculate a value or has no analogy it will either add a default value that it thinks is reasonable or , in rare cases, insert a place holder.
+If Antechamber cannot empirically calculate a value, or has no analogy, it will either add a default value that it thinks is reasonable or , in rare cases, insert a place holder.
 This will contain zeros in all columns and be accompanied by the comment "ATTN: needs revision" in the output.
 In these circumstances you will have to manually add these parameters.</p>
 <pre><code>parmchk -i l01.prep -f prepi -o l01.frcmod
@@ -162,7 +168,7 @@ An easy way of achieving this is to run the command:</p>
 </code></pre>
 
 <p>Remove any header lines from the resultant PDB (<code>reduce</code> adds one beginning 'USER  MOD').</p>
-<p>For use in BAC the ligand PDB (<em>l01.pdb</em> in the example) should be checked to ensure that it does not contain entries in the element column.
+<p>For use in BAC the ligand PDB ( <em>l01.pdb</em> in the example) should be checked to ensure that it does not contain entries in the element column.
 In particular entries for chlorine can be a problem.</p>
 <h3 id="non-standard-approach-using-am1-bcc">Non-standard approach (using AM1-BCC)</h3>
 <p>This section is something of an aside and is included for completeness only, skip if you are only interested in creating standard BAC parameterizations.
@@ -192,7 +198,9 @@ Run this to produce a ligand model using <code>tleap</code>:</p>
 </code></pre>
 
 <p>A common reason for failure is that some atom names change capitalization in the Antechamber process (in particular 'CL' becoming 'Cl' and 'BR' turning into 'Br').
-It is easiest to change the case in the PDB as the entries only appear once (as opposed to the <em>.prep</em> file where they appear in atom and connectivity lines).</p>
+It is easiest to change the case in the PDB as the entries only appear once (as opposed to the <em>.prep</em> file where they appear in atom and connectivity lines).
+If one is not present you should add a line containing only the text <code>TER</code> to the end of the ligand PDB. 
+A corrected PDB for our ligand can be downloaded <a href="../examples/l01.pdb">here</a>.</p>
               
             </div>
           </div>

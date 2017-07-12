@@ -99,6 +99,11 @@
     <a class="" href="../testing/">Testing</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../cofactors/">More complex systems</a>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -216,11 +221,12 @@ BAC Builder can only parse a small number of solvent atoms</p>
 </tbody>
 </table>
 <p>The solvent can be extracted from 4BJX using:</p>
-<pre><code>grep &quot; HOH | MG | ZN | CL | NA &quot; 4bjx.pdb &gt; 4bjx-solvent.pdb
+<pre><code>egrep &quot; HOH | MG | ZN | CL | NA &quot; 4bjx.pdb | egrep &quot;ATOM | HETATM&quot; &gt; 4bjx-solvent.pdb
 </code></pre>
 
-<p>An example of the solvent only file can be downloaded from <a href="../examples/4bjx-solvent.pdb">here</a>.
-Note: This <code>grep</code> command can be dangerous if the ligand contains 'CL' atoms and entries in the element column.</p>
+<p>This <code>grep</code> command can be dangerous if the ligand contains 'CL' atoms and entries in the element column.
+This file is an example of this - delete the top line of the <em>4bjx-solvent.pdb</em> which is the chlorine atom from the ligand.
+An example of the solvent only file can be downloaded from <a href="../examples/4bjx-solvent.pdb">here</a>.</p>
 <h2 id="prepare-ligand-for-processing">Prepare ligand for processing</h2>
 <p>In order to parameterize the ligand we need to have a separate PDB containing only ligand atoms.
 Create this PDB using the same tools as for the protein and solvent atoms.</p>

@@ -86,6 +86,11 @@
     <a class="" href="../testing/">Testing</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../cofactors/">More complex systems</a>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -135,13 +140,8 @@ Two charge methods can be used HF/6-31G RESP* or AM1-BCC.
 The work conducted to date with BAC has focussed on the HF/6-31G* RESP method used to parameterize much of the main Amber forcefield.
 It is this approach that we will be detailing in the next two sections, although we will briefly mention the command used to complete the AM1-BCC approach as this eliminated the need for time consuming Gaussian calculations.</p>
 <p>The first step to using Antechamber in this context is to generate the input file for Gaussian to optimize the ligand and generate a quantum-chemically calculated electrostatic potential.</p>
-<p>For neutral ligands it is sufficient to specify only the input PDB (<code>-fi</code> specifies the format and <code>-i</code> the filename) and the output file (<code>-fo</code> specifies the format and <code>-o</code> the filename):</p>
-<pre><code>antechamber -fi pdb -fo gcrt -i 4bjx-ligand-h.pdb -o 4bjx-ligand.gau
-</code></pre>
-
-<p>If the ligand is charged an extra option for the net charge, <code>-nc</code>, must be used.
-For example if we thought the ligand had a charge of +1 we would use:</p>
-<pre><code>antechamber -fi pdb -fo gcrt -i 4bjx-ligand-h.pdb -o 4bjx-ligand.gau -nc 1
+<p>For neutral ligands it is sufficient to specify only the input PDB (<code>-fi</code> specifies the format and <code>-i</code> the filename) and the output file (<code>-fo</code> specifies the format and <code>-o</code> the filename). Here the ligand has a -1 charge, this is handled using teh additional <code>-nc</code> option:</p>
+<pre><code>antechamber -fi pdb -fo gcrt -i 4bjx-ligand-h.pdb -o 4bjx-ligand.gau -nc -1
 </code></pre>
 
 <p>The first few lines of the Gaussian input file generated will look something like this:</p>
@@ -151,7 +151,7 @@ For example if we thought the ligand had a charge of +1 we would use:</p>
 
 remark line goes here
 
-0   1
+-1   1
     C   15.0320000000        6.0240000000       10.0040000000     
     C   14.0090000000        5.1520000000        9.2570000000     
     C   14.6530000000        4.2700000000        8.1860000000
@@ -173,7 +173,9 @@ In principle this can be achieved using the command (for Gaussian 09):</p>
 <pre><code>g09 &lt; 4bjx-ligand.gau &gt; 4bjx-ligand.out
 </code></pre>
 
-<p>However, this process can take a long time and it is recommended that the job is executed using a batch system. The details of executing that run will be dependent on your system setup.</p>
+<p>However, this process can take a long time and it is recommended that the job is executed using a batch system. 
+The details of executing that run will be dependent on your system setup.
+Example Gaussian output is dowloadable from <a href="../examples/4bjx-ligand.out">here</a>.</p>
 <p>In the next section we will use the electrostatic potential to generate partial charges for our ligand.</p>
               
             </div>
