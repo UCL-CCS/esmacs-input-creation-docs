@@ -19,17 +19,10 @@ It is this approach that we will be detailing in the next two sections, although
 
 The first step to using Antechamber in this context is to generate the input file for Gaussian to optimize the ligand and generate a quantum-chemically calculated electrostatic potential.
 
-For neutral ligands it is sufficient to specify only the input PDB (`-fi` specifies the format and `-i` the filename) and the output file (`-fo` specifies the format and `-o` the filename):
+For neutral ligands it is sufficient to specify only the input PDB (`-fi` specifies the format and `-i` the filename) and the output file (`-fo` specifies the format and `-o` the filename). Here the ligand has a -1 charge, this is handled using teh additional `-nc` option:
 
 ```
-antechamber -fi pdb -fo gcrt -i 4bjx-ligand-h.pdb -o 4bjx-ligand.gau
-```
-
-If the ligand is charged an extra option for the net charge, `-nc`, must be used.
-For example if we thought the ligand had a charge of +1 we would use:
-
-```
-antechamber -fi pdb -fo gcrt -i 4bjx-ligand-h.pdb -o 4bjx-ligand.gau -nc 1
+antechamber -fi pdb -fo gcrt -i 4bjx-ligand-h.pdb -o 4bjx-ligand.gau -nc -1
 ```
 
 The first few lines of the Gaussian input file generated will look something like this:
@@ -41,7 +34,7 @@ The first few lines of the Gaussian input file generated will look something lik
 
 remark line goes here
 
-0   1
+-1   1
     C   15.0320000000        6.0240000000       10.0040000000     
     C   14.0090000000        5.1520000000        9.2570000000     
     C   14.6530000000        4.2700000000        8.1860000000
