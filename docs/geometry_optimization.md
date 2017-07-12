@@ -60,6 +60,8 @@ In principle this can be achieved using the command (for Gaussian 09):
 g09 < 4bjx-ligand.gau > 4bjx-ligand.out
 ```
 
-However, this process can take a long time and it is recommended that the job is executed using a batch system. The details of executing that run will be dependent on your system setup.
+However, this process can take a long time and it is recommended that the job is executed using a batch system. 
+The details of executing that run will be dependent on your system setup.
+Example Gaussian output is dowloadable from [here](examples/4bjx-ligand.out).
 
 In the next section we will use the electrostatic potential to generate partial charges for our ligand.
