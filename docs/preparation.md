@@ -81,7 +81,7 @@ BAC Builder can only parse a small number of solvent atoms
 
 The solvent can be extracted from 4BJX using:
 ```
-egrep " HOH | MG | ZN | CL | NA " 4bjx.pdb > 4bjx-solvent.pdb
+egrep " HOH | MG | ZN | CL | NA " 4bjx.pdb | egrep "ATOM | HETATM" > 4bjx-solvent.pdb
 ```
 
 This `grep` command can be dangerous if the ligand contains 'CL' atoms and entries in the element column.
