@@ -1,7 +1,7 @@
 
 ## Combine component PDBs
 
-As noted earlier BAC expects the PDB to have a set structure - protein, lgand and then solvent.
+As noted earlier BAC expects the PDB to have a set structure - protein, ligand and then solvent.
 It also expects `TER` cards between chains.
 During this tutorial we have prepared files for each of these sections, edited to meet the requirements of Amber and BAC:
 
